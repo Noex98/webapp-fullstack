@@ -11,7 +11,7 @@ export default function Nav(active){
                 <li class="${active === 'plans' ? 'nav__active' : ''}id="nav-li-center">
                     ${Link('/startWorkout', /*html*/ 'Start icon')}
                 </li>
-                <li class="${active === 'plans' ? 'nav__active' : ''}>
+                <li class="${active === 'plans' ? 'nav__active' : ''}">
                     ${Link('/stats', /*html*/ 'Stats icon')}
                 </li>
             </ul>
