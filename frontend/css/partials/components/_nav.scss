@@ -1,0 +1,26 @@
+nav {
+    width:100%;
+    position:fixed;
+    bottom:0;
+    left:0;
+    ul {
+        width:100%;
+        display:flex;
+        background-color: #c4c4c4;
+        li {
+            padding-top: 16px;
+            padding-bottom: 16px;
+            flex:1;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        #nav-li-center {
+            border-left:1px solid #fff;
+            border-right:1px solid #fff;
+        }
+    }
+    
+
+}

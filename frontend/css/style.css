@@ -1,0 +1,140 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+html {
+  min-height: 100vh;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: inherit;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+}
+
+@-webkit-keyframes fadeOutIn {
+  0% {
+    opacity: 1;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  50% {
+    opacity: 0;
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+}
+
+@keyframes fadeOutIn {
+  0% {
+    opacity: 1;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  50% {
+    opacity: 0;
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+}
+
+header {
+  padding: 12px;
+  text-align: center;
+  background-color: #c4c4c4;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: #fff;
+  position: relative;
+}
+
+header .header__backBtn {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+nav {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+nav ul {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #c4c4c4;
+}
+
+nav ul li {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+nav ul #nav-li-center {
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+/*# sourceMappingURL=style.css.map */
