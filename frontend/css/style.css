@@ -201,7 +201,6 @@ nav ul #nav-li-center {
           flex-direction: column;
 }
 
-<<<<<<< HEAD
 .profile__container {
   padding: 0 23px;
 }
@@ -277,38 +276,6 @@ button {
   color: white;
   padding: 20px 0;
   border: none;
-=======
-h1 {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 28px;
-}
-
-h2 {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 21px;
-}
-
-#home__days {
-  overflow: auto;
-  white-space: nowrap;
-}
-
-#home__days div {
-  display: inline-block;
-  background: #66848A;
-  border-radius: 10px;
-  font-family: Roboto;
-  text-align: center;
-  margin: 5px;
-  width: 38px;
-  padding: 20px 0px 20px;
->>>>>>> c5abc6b1bacb212f78ce5da510ee0eed7867082e
 }
 
 #view__plans {
