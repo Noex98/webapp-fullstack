@@ -44,11 +44,13 @@ export default function Home(){
     return (/*html*/ `
         ${Background()}
         ${Header()}
-        <h2>Hello Lukas 💪<h2>
-        <h1>Welcome Back!</h1>
-        
-        <div id="home__days">
-            ${appendDays(_days)}
+        <div id="view__home">
+            <h2>Hello Lukas 💪<h2>
+            <h1>Welcome Back!</h1>
+            
+            <div id="home__days">
+                ${appendDays(_days)}
+            </div>
         </div>
         ${Nav()}
     `)
