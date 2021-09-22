@@ -6,7 +6,7 @@ nav {
     ul {
         width:100%;
         display:flex;
-        background-color: #c4c4c4;
+        background-color: #082032;
         li {
             padding-top: 12px;
             padding-bottom: 12px;
@@ -20,9 +20,8 @@ nav {
                 height:28px;
             }
         }
-        #nav-li-center {
-            border-left:1px solid #fff;
-            border-right:1px solid #fff;
+        .nav__active{
+            color:rgb(255, 255, 255);
         }
     }
 }

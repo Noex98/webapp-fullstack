@@ -130,7 +130,7 @@ nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #c4c4c4;
+  background-color: #082032;
 }
 
 nav ul li {
@@ -156,9 +156,8 @@ nav ul li img {
   height: 28px;
 }
 
-nav ul #nav-li-center {
-  border-left: 1px solid #fff;
-  border-right: 1px solid #fff;
+nav ul .nav__active {
+  color: white;
 }
 
 #background {
@@ -262,6 +261,7 @@ nav ul #nav-li-center {
   border: none;
   outline: none;
   width: 100%;
+  color: white;
 }
 
 .profile__container {

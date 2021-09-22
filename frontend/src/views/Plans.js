@@ -12,6 +12,6 @@ export default function Plans(){
             <input class="inputCont__name" type="text" placeholder="Untitled" />
         </div>
     </div>
-    ${Nav()}
+    ${Nav('plans')}
     `)
 }
