@@ -31,6 +31,10 @@ auth_routes.post('/api/login', (req, res) => {
             }
         })
         .catch(err => {
+            res.json({
+                login: false,
+                err: 'Unidentified error'
+            })
             console.log(err)
         })
 })
