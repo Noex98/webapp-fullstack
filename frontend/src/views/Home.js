@@ -43,7 +43,7 @@ export default function Home(){
 
     return (/*html*/ `
         ${Background()}
-        ${Header()}
+        ${Header({profileBtn: true})}
         <div id="view__home">
             <h2>Hello Lukas 💪<h2>
             <h1>Welcome Back!</h1>

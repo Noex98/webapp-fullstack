@@ -39,21 +39,21 @@ export default function Login(){
                 <p>Start your training and see your progress!</p>
                 <div class="container__inputs">
                     <div>
-                        <img src="" alt="icon" />
+                        <img src="../media/images/icons/username2.svg" alt="icon" />
                         <div class="inputs__fields">
                             <label for="user">Username / E-mail: </label>
                             <input type="text" name="user" id="user" />
                         </div>
                     </div>
                     <div>
-                        <img src="" alt="icon" />
+                        <img src="../media/images/icons/mail.svg" alt="icon" />
                         <div class="inputs__fields">
                             <label for="password">Password: </label>
                             <input type="password" name="password" id="password" />
                         </div>
                     </div>
                     <div>
-                        <img src="" alt="icon" />
+                        <img src="../media/images/icons/password.svg" alt="icon" />
                         <div class="inputs__fields">
                             <input type="checkbox" />
                             <label for="remember">Remember me: </label>

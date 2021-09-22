@@ -175,13 +175,9 @@ nav ul #nav-li-center {
 #view__login .logo {
   font-size: 96px;
   font-weight: bold;
-  padding-top: 120px;
+  padding-top: 97px;
   text-align: center;
-  padding-bottom: 77px;
-}
-
-#view__login .login__container {
-  padding: 0 23px;
+  padding-bottom: 54px;
 }
 
 #view__login h2 {
