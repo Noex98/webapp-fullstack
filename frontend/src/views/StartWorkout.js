@@ -3,10 +3,8 @@ import Nav from "../components/Nav.js"
 
 export default function StartWorkout(){
 
-    let n = 13
-
     window.clickfunc = () => {
-        alert(n)
+        abc()
     }
 
     return (/*html*/ `

@@ -42,9 +42,8 @@ export default function Login(){
 
             <input type="checkbox" />
             <label for="remember">Remember me: </label>
-            <div>
-                <button onclick="login()">Login</button>
-            </div>
+        <div>
+            <button onclick="login()">Login</button>
             <div id="errLog"></div>
         </div>
         ${Link('/new-user', /*html*/`
