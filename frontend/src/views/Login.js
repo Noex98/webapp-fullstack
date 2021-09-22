@@ -1,4 +1,4 @@
-import Header from "../components/Header.js"
+import Background from "../components/Background.js"
 import Redirect from "../utils/Redirect.js"
 import Link from "../utils/Link.js"
 import __ENV from "../env.js"
@@ -30,24 +30,47 @@ export default function Login(){
     }
 
     return (/*html*/ `
-        ${Header()}
-        <h1>Login</h1>
-        <p>Start your training and see your progress!</p>
-        <div>
-            <label for="user">Username / E-mail: </label>
-            <input type="text" name="user" id="user" />
+        ${Background()}
+        <div id="view__login">
+            <h1 class="logo" >Liftr</h1>
+            <div class="login__container">
+                <h2>Login</h2>
+                <p>Start your training and see your progress!</p>
+                <div class="container__inputs">
+                    <div>
+                        <img src="" alt="icon" />
+                        <div class="inputs__fields">
+                            <label for="user">Username / E-mail: </label>
+                            <input type="text" name="user" id="user" />
+                        </div>
+                    </div>
+                    <div>
+                        <img src="" alt="icon" />
+                        <div class="inputs__fields">
+                            <label for="password">Password: </label>
+                            <input type="password" name="password" id="password" />
+                        </div>
+                    </div>
+                    <div>
+                        <img src="" alt="icon" />
+                        <div class="inputs__fields">
+                            <input type="checkbox" />
+                            <label for="remember">Remember me: </label>
+                        </div>
+                    </div>
+                <div>
+                    <button onclick="login()">Login</button>
+                    <div id="errLog"></div>
+                </div>
+                
+                ${Link('/forgot-password', /*html*/`
+                    Forgot you password?
+                `)}
 
-            <label for="password">Password: </label>
-            <input type="password" name="password" id="password" />
-
-            <input type="checkbox" />
-            <label for="remember">Remember me: </label>
-        <div>
-            <button onclick="login()">Login</button>
-            <div id="errLog"></div>
+                ${Link('/new-user', /*html*/`
+                    <div>Signup here!</div>    
+                `)}
+            </div>
         </div>
-        ${Link('/new-user', /*html*/`
-            <div>Signup here!</div>    
-        `)}
     `)
 }

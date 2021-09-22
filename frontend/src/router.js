@@ -7,6 +7,7 @@ import Profile from './views/Profile.js'
 import Stats from './views/Stats.js'
 import StartWorkout from './views/StartWorkout.js'
 import Plans from './views/Plans.js'
+import ForgotPassword from './views/ForgotPassword.js'
 
 // Utils
 import ProtectRoute from './utils/ProtectRoute.js'
@@ -22,6 +23,9 @@ const routes = [
     }, {
         path: '/new-user',
         view: NewUser,
+    }, {
+        path: '/forgot-password',
+        view: ForgotPassword,
     }, {
         path: '/profile',
         view: Profile,
