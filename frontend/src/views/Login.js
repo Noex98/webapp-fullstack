@@ -32,11 +32,16 @@ export default function Login(){
     return (/*html*/ `
         ${Header()}
         <h1>Login</h1>
+        <p>Start your training and see your progress!</p>
         <div>
             <label for="user">Username / E-mail: </label>
             <input type="text" name="user" id="user" />
+
             <label for="password">Password: </label>
             <input type="password" name="password" id="password" />
+
+            <input type="checkbox" />
+            <label for="remember">Remember me: </label>
             <div>
                 <button onclick="login()">Login</button>
             </div>
