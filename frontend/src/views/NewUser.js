@@ -4,6 +4,7 @@ export default function NewUser(){
     return (/*html*/ `
             ${Header()}
             <h1>Sign up</h1>
+            <p>Let's get you all set up, so you can start lifting, create your own workouts and see your progress
             <div>
                 <div>
                     <label for="username">Username</label>
