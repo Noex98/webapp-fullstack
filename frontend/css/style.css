@@ -13,6 +13,12 @@ body {
   min-height: 100vh;
   color: #fff;
   font-family: 'Roboto';
+  overflow-y: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  padding: 23px;
 }
 
 a {
@@ -113,8 +119,8 @@ header .header__profileBtn {
 }
 
 nav {
-  width: 100%;
   position: fixed;
+  width: 100vw;
   bottom: 0;
   left: 0;
 }
@@ -128,8 +134,8 @@ nav ul {
 }
 
 nav ul li {
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -145,6 +151,11 @@ nav ul li {
   text-align: center;
 }
 
+nav ul li img {
+  width: 28px;
+  height: 28px;
+}
+
 nav ul #nav-li-center {
   border-left: 1px solid #fff;
   border-right: 1px solid #fff;
@@ -154,8 +165,8 @@ nav ul #nav-li-center {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
   z-index: -1;
   background: -webkit-gradient(linear, left top, left bottom, from(#4AB28D), color-stop(31.77%, #296A60), color-stop(48.44%, #1A484B), color-stop(77.5%, #082032));
   background: linear-gradient(180deg, #4AB28D 0%, #296A60 31.77%, #1A484B 48.44%, #082032 77.5%);
@@ -230,10 +241,6 @@ nav ul #nav-li-center {
   padding: 20px 0px 20px;
 }
 
-#view__plans {
-  padding: 23px;
-}
-
 #view__plans h2 {
   font-weight: bold;
   font-size: 24px;
@@ -258,6 +265,7 @@ nav ul #nav-li-center {
   background: none;
   border: none;
   outline: none;
+  width: 100%;
 }
 
 .profile__container {

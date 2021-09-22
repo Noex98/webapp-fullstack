@@ -8,7 +8,7 @@ export default function Header(props){
             return (
                 NavigateBack(/*html*/ `
                     <div class="header__backBtn">
-                        <--
+                        <img src="../media/images/icons/back.svg"/>
                     </div>
                 `)
             )
@@ -22,7 +22,7 @@ export default function Header(props){
             return (
                 Link('/profile', /*html*/ `
                     <div class="header__profileBtn">
-                        Profile
+                        <img src="../media/images/icons/profile.svg"/>
                     </div>
                 `)
             )

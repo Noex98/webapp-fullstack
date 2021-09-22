@@ -1,6 +1,6 @@
 nav {
-    width:100%;
     position:fixed;
+    width:100vw;
     bottom:0;
     left:0;
     ul {
@@ -8,19 +8,21 @@ nav {
         display:flex;
         background-color: #c4c4c4;
         li {
-            padding-top: 16px;
-            padding-bottom: 16px;
+            padding-top: 12px;
+            padding-bottom: 12px;
             flex:1;
             display:flex;
             justify-content: center;
             align-items: center;
             text-align: center;
+            img {
+                width:28px;
+                height:28px;
+            }
         }
         #nav-li-center {
             border-left:1px solid #fff;
             border-right:1px solid #fff;
         }
     }
-    
-
 }

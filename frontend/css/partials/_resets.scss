@@ -12,6 +12,12 @@ body {
     min-height: 100vh;
     color: #fff;
     font-family: 'Roboto';
+    overflow-y: hidden;
+}
+
+#root {
+    min-height: 100vh;
+    padding: 23px;
 }
 
 a {
