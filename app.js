@@ -21,7 +21,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 
 // Parsers & dev tools
-app.use(morgan('dev'));                             // dev tool
+//app.use(morgan('dev'));                             // dev tool
 app.use(cookieParser());                            // Parse cookies
 app.use(express.urlencoded({ extended: true }));    // Parse url-encoded
 app.use(express.json({ extended: true }));          // Parse JSON
@@ -30,14 +30,10 @@ app.use(express.json({ extended: true }));          // Parse JSON
 app.use(auth_routes)    // Authorization, authentication and new users
 app.use(data_routes)    // Crud operations for primary data
 
-
-
-// Frontend
-
 // Static files
 app.use('/', express.static(path.join(__dirname, 'frontend')));
 
-// Index.html
+// Always send index
 app.get('/*', (req, res) => {
     res.sendFile(__dirname + '/frontend/index.html')
 })

@@ -3,7 +3,7 @@ import Nav from "../components/Nav.js"
 
 export default function Stats(){
     return (/*html*/ `
-        ${Header(true)}
+        ${Header({backBtn: true, profileBtn: true})}
             Stats component
         ${Nav()}
     `)

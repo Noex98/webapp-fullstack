@@ -100,6 +100,14 @@ header .header__backBtn {
           transform: translateY(-50%);
 }
 
+header .header__profileBtn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
 nav {
   width: 100%;
   position: fixed;

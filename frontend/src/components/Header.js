@@ -1,25 +1,46 @@
 import Link from "../utils/Link.js"
+import NavigateBack from "../utils/NavigateBack.js"
 
-export default function Header(backBtn){
+export default function Header(props){
 
-    function insertBtn(backBtn){
-        if (backBtn === true){
-            return (/*html*/`
-                <div class="header__backBtn">
-                    <--
-                </div>
-            `)
+    function BackBtn(){
+        if (props && props.backBtn === true){
+            return (
+                NavigateBack(/*html*/ `
+                    <div class="header__backBtn">
+                        <--
+                    </div>
+                `)
+            )
         } else {
             return ''
         }
     }
 
+    function ProfileBtn(){
+        if (props && props.profileBtn === true){
+            return (
+                Link('/profile', /*html*/ `
+                    <div class="header__profileBtn">
+                        Profile
+                    </div>
+                `)
+            )
+        } else {
+            return ''
+        }
+    }
+
+
     return (/*html*/`
         <header>
+            
+            ${BackBtn()}
             ${Link('/', /*html*/ `
-                ${insertBtn(backBtn)}
                 <h1>LIFTR</h1>
             `)}
+            ${ProfileBtn()}
+            
         </header>
     `)
 }

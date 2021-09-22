@@ -10,7 +10,7 @@ export default function StartWorkout(){
     }
 
     return (/*html*/ `
-        ${Header()}
+        ${Header({profileBtn: true})}
             StartWorkout component
             <button onclick="clickfunc()">click me</button>
         ${Nav()}

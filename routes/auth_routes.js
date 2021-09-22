@@ -15,7 +15,7 @@ auth_routes.post('/api/login', (req, res) => {
     }).exec()
         .then(result => {
             if (result){
-                res.cookie('user_Id', result._id.toString(), {
+                res.cookie('user_Id', crypt(result._id.toString()), {
                     sameSite: 'none',
                     path: '/',
                     secure: true
@@ -67,8 +67,10 @@ auth_routes.post('/api/loginupdate', (req, res) => {
 
 // Protect frontend paths
 auth_routes.post('/api/auth', (req, res) => {
-    console.log(req.cookies)
-    User.findById(req.cookies.user_Id).exec()
+    //console.log(crypt('abc'))
+    //console.log(req.cookies.user_Id)
+    //console.log(crypt(req.cookies.user_Id))
+    User.findById(crypt(req.cookies.user_Id)).exec()
         .then(result => {
             if (result){
                 res.json({
@@ -81,13 +83,15 @@ auth_routes.post('/api/auth', (req, res) => {
             }
         })
         .catch(err => {
-            console.log(err)
+            res.json({
+                auth: false
+            })
         })
 })
 
 // Authenticate requests
 auth_routes.all('/api/*', (req, res) => {
-    User.findById(req.cookies.user_Id).exec()
+    User.findById(crypt(req.cookies.user_Id)).exec()
         .then(result => {
             if (result){
                 next()
