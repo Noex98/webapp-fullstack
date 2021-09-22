@@ -1,3 +1,46 @@
-export default function Settings(){
-    return 'Profile'
+import Header from '../components/Header.js'
+import Nav from '../components/Nav.js'
+import Background from '../components/Background.js'
+
+
+export default function Profile(){
+
+    return (/*html*/ `
+        ${Background()}
+        ${Header({backBtn: true})}
+        <div class="profile__container">
+            <h1>Your Profile</h1>
+
+            <h2>Account Settings</h2>
+            <div>
+                <img src="" alt="icon" />
+                <input type="text" placeholder="Profile">
+            </div>
+
+            <h3>Contact Details</h2>
+            <div>
+                <img src="" alt="icon" />    
+                <input type="text" placeholder="Email adress">
+            </div>
+            <div>
+                <img src="" alt="icon" />
+                <input type="text" placeholder="Phone number">
+            </div>
+
+            <h3>Security Settings</h2>
+            <div>
+                <img src="" alt="icon" />
+                <input type="text" placeholder="Password">
+            </div>
+
+            <h3>App Settings</h2>
+            <div>
+                <img src="" alt="icon" />
+                <input type="text" placeholder="Notifacations">
+            </div>
+
+            <button type="button">Logout</button>
+        </div>
+        ${Nav()}
+    `)
 }
