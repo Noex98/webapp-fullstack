@@ -151,13 +151,17 @@ nav ul li {
   text-align: center;
 }
 
-nav ul li img {
-  width: 28px;
-  height: 28px;
+nav ul li svg {
+  width: 36px;
+  height: 36px;
 }
 
-nav ul .nav__active {
-  color: white;
+nav ul .nav__active .fill {
+  fill: #fff;
+}
+
+nav ul .nav__active .stroke {
+  stroke: #fff;
 }
 
 #background {
