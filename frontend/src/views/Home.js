@@ -4,18 +4,23 @@ import Background from '../components/Background.js'
 import { user } from '../Store.js' 
 
 export default function Home(){
-   let _user = user.data();
-    console.log(_user);
+
+    let _user = user.data();
+    let _plans = _user.plans
+
+    console.log(_plans)
+
     let _days = []
     // Get todays date and day of the week
     let today = new Date();
     function getWeekDay(today){
         let days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]
         return days[today.getDay()]
-    
     }
+
     function getMonth(today){
-        let months =["January",
+        let months = [
+            "January",
             "February",
             "March",
             "April",
@@ -26,22 +31,27 @@ export default function Home(){
             "September",
             "October",
             "November",
-            "December",]
-            return months[today.getMonth()-1]
+            "December",
+        ]
+        return months[today.getMonth()-1]
     }
 
     
-    let day = {dayOfWeek: getWeekDay(today),
-    dateOfMonth:today.getDate()};
+    let day = {
+        dayOfWeek: getWeekDay(today),
+        dateOfMonth:today.getDate()
+    };
     //Push day to array _days
     _days.push(day)
 
     // Add dates ahead of today and add to end of _days array
     for (let i = 0; i < 14; i++){
     today.setDate(today.getDate()+1)
-    let dayAhead = {dayOfWeek: getWeekDay(today),
-        dateOfMonth:today.getDate()};
-        _days.push(dayAhead)
+    let dayAhead = {
+        dayOfWeek: getWeekDay(today),
+        dateOfMonth:today.getDate()
+    };
+    _days.push(dayAhead)
     }
  
 

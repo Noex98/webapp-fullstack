@@ -3,30 +3,47 @@ import Nav from "../components/Nav.js";
 import Background from "../components/Background.js"
 import { user } from "../Store.js";
 import __ENV from "../env.js";
+import Redirect from "../utils/Redirect.js";
 
 export default function Plans(){
 
+    let data = user.data()
 
     window.updatePlans = () => {
 
+        
+
+        let rows = document.querySelectorAll('tbody tr')
+
         let newPlan = {
-            name: 'Squads',
-            repeat: [
-                'monday',
-                'friday,'
-            ],
-            
+            name: document.querySelector('.inputCont__name').value,
+            repeat: [],
+            exercises: [],
         }
 
+        for (const row of rows) {
+            let exercise = {
+                name: row.querySelector('.td__name input').value,
+                set: row.querySelector('.td__set input').value,
+                rep: row.querySelector('.td__rep input').value,
+                weight: row.querySelector('.td__weight input').value,
+            }
+            newPlan.exercises.push(exercise)
+        }
+
+        data.plans.push(newPlan)
+
+        
         fetch(__ENV + '/api/plans', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(['1', '2']),
+            body: JSON.stringify(data.plans),
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => Redirect('/'))
+        
     }
 
     let exerciseCount = 1
@@ -35,25 +52,26 @@ export default function Plans(){
         exerciseCount += 1
         document.getElementById('exerciseCount'). innerText = `${exerciseCount} exercises`
 
-        let newRow = /*html*/`
+        let tr = document.createElement('tr')
+
+        tr.innerHTML = /*html*/`
             <tr>
-                <td>
+                <td class="td__name">
                     <input type="text" placeholder="Untitled" />
                 </td>
-                <td>
+                <td class="td__set">
                     <input class="td__numberInput" min="0" max="999" type="number" placeholder="x"/>
                 </td>
-                <td>
+                <td class="td__rep">
                     <input class="td__numberInput" min="0" max="999" type="number" placeholder="x"/>
                 </td>
-                <td>
+                <td class="td__weight">
                     <input class="td__numberInput" min="0" max="999" type="number" placeholder="x"/> 
                 </td>
             </tr>
         `
         let tableBody = document.querySelector('tbody')
-
-        tableBody.innerHTML += newRow
+        tableBody.appendChild(tr)
 
     }
 
@@ -78,16 +96,16 @@ export default function Plans(){
                 </thead>
                 <tbody>
                     <tr>
-                        <td>
+                        <td class="td__name">
                             <input type="text" placeholder="Untitled" />
                         </td>
-                        <td>
+                        <td class="td__set">
                             <input class="td__numberInput" min="0" max="999" type="number" placeholder="x"/>
                         </td>
-                        <td>
+                        <td class="td__rep">
                             <input class="td__numberInput" min="0" max="999" type="number" placeholder="x"/>
                         </td>
-                        <td>
+                        <td class="td__weight">
                             <input class="td__numberInput" min="0" max="999" type="number" placeholder="x"/> 
                         </td>
                     </tr>
