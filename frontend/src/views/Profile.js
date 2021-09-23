@@ -24,7 +24,7 @@ export default function Profile(){
             }),
         })
             .then(res => res.json())
-            .then(data => ReRender())
+            .then(data => Rere)
     }
     
     function returnNumber() {
@@ -98,7 +98,7 @@ export default function Profile(){
             <div>
                 <img src="../media/images/icons/notification.svg" alt="icon" />
                 <div class="input__fields notifications">
-                    <input type="text" placeholder="Notifications">
+                    <p>Notifications</p>
                     <label class="switch">
                         <input type="checkbox">
                         <span class="slider round"></span>

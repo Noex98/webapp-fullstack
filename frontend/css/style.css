@@ -358,6 +358,7 @@ nav ul .nav__active .stroke {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding-right: 15px;
 }
 
 .profile__container h1 {
@@ -382,6 +383,9 @@ nav ul .nav__active .stroke {
 .profile__container p {
   font-size: 18px;
   margin: auto 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .profile__container label {
@@ -457,6 +461,19 @@ nav ul .nav__active .stroke {
   -webkit-box-pack: left;
       -ms-flex-pack: left;
           justify-content: left;
+}
+
+.profile__container .notifications {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .profile__container .switch {
