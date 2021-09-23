@@ -43,7 +43,7 @@ export default function Login(){
     
 
     return (/*html*/ `
-        <div id="view__login">h
+        <div id="view__login">
             ${Background()}
             <h1 class="logo" >Liftr</h1>
             <div class="login__container">
