@@ -7,7 +7,7 @@ export default function Home(){
     // Get todays date and day of the week
     let today = new Date();
     function getWeekDay(today){
-        let days = ["M", "T", "W", "T", "F", "S", "S"]
+        let days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]
         return days[today.getDay()]
     
     }
@@ -17,26 +17,23 @@ export default function Home(){
     _days.push(day)
 
     // Add dates ahead of today and add to end of _days array
-    for (let i = 0; i < 7; i++){
+    for (let i = 0; i < 31; i++){
     today.setDate(today.getDate()+1)
     let dayAhead = {dayOfWeek: getWeekDay(today),
         dateOfMonth:today.getDate()};
         _days.push(dayAhead)
     }
-    let today1 = new Date();
-    // Add dates prior of today and add to beginning of _days array
-    for (let i = 0; i < 7; i++){
-        today1.setDate(today1.getDate()-1)
-        let dayPrior = {dateOfMonth:today1.getDate(), dayOfWeek: getWeekDay(today1)};
-            _days.unshift(dayPrior)
-        }
-    console.log(_days);
+ 
+
+
+    //Display workout 
+     
 
     // Append to DOM
     function appendDays(_days){
         let html_template = ''
         for (let day of _days){
-            html_template += `<div>${day.dayOfWeek}<br>  ${day.dateOfMonth}</div>`
+            html_template += /*html*/ `<div class="nd" onclick="displayWorkout()"><div id="n">${day.dayOfWeek}</div><br> <div id="d">${day.dateOfMonth}</div></div>`
         }
         return html_template
     }
@@ -47,11 +44,18 @@ export default function Home(){
         <div id="view__home">
             <h2>Hello Lukas 💪<h2>
             <h1>Welcome Back!</h1>
-            
+           
+            <div>
+            <img id="arrowleft" src="../media/images/icons/arrow_left.svg">
             <div id="home__days">
                 ${appendDays(_days)}
             </div>
+            <img id="arrowright" src="../media/images/icons/arrow_right.svg">
+            </div>
+            <div id="workoutContainer"></div>
         </div>
+     
         ${Nav()}
     `)
 }
+

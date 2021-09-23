@@ -1,4 +1,5 @@
 #view__home {
+  
     h1{
     font-style: normal;
     font-weight: bold;
@@ -12,21 +13,48 @@
     font-size: 18px;
     line-height: 21px;
     }
-
+    div{
+        position: relative;
+    
+        img{
+            width: 13px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            fill: #7c9aa0;
+        }
+        #arrowleft{
+            left: -15px;
+        
+        }
+        #arrowright{
+            right: -15px;
+        }
+  
+ 
     #home__days {
-
+    
         overflow: auto;
         white-space: nowrap;
-
-        div{
+   
+        .nd{
             display: inline-block;
-            background: #66848A;
+            background: #7c9aa0;
             border-radius: 10px;
             text-align: center;
             margin: 5px;
-            width: 38px;
-            padding: 20px 0px 20px
+            width: 45px;
+            padding: 20px 0px 20px;
+           
             
         }
     }
+  
+}
+    #workoutContainer{
+        width:100%;
+        height: 50vh;
+        background: rgba(255, 255, 255, 0.17);
+        border-radius: 10px;
+        }
 }

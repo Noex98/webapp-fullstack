@@ -270,19 +270,47 @@ nav ul .nav__active {
   line-height: 21px;
 }
 
-#view__home #home__days {
+#view__home div {
+  position: relative;
+}
+
+#view__home div img {
+  width: 13px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  fill: #7c9aa0;
+}
+
+#view__home div #arrowleft {
+  left: -15px;
+}
+
+#view__home div #arrowright {
+  right: -15px;
+}
+
+#view__home div #home__days {
   overflow: auto;
   white-space: nowrap;
 }
 
-#view__home #home__days div {
+#view__home div #home__days .nd {
   display: inline-block;
-  background: #66848A;
+  background: #7c9aa0;
   border-radius: 10px;
   text-align: center;
   margin: 5px;
-  width: 38px;
+  width: 45px;
   padding: 20px 0px 20px;
+}
+
+#view__home #workoutContainer {
+  width: 100%;
+  height: 50vh;
+  background: rgba(255, 255, 255, 0.17);
+  border-radius: 10px;
 }
 
 #view__plans h2 {
