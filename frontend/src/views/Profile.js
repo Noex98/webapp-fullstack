@@ -49,23 +49,23 @@ export default function Profile(){
                 <img src="../media/images/icons/mail.svg" alt="icon" />   
                 <div class="input__fields">
                     <label for="email">Email adress</label>
-                    <input autocomplete="off" placeholder="example@example.com" type="text" name="user" id="email" />
+                    <input autocomplete="off" placeholder="${_user !== undefined ? _user.email : 'Loading'}" type="text" name="user" id="email" />
                 </div>
             </div>
             <div>
                 <img src="../media/images/icons/phone.svg" alt="icon" />   
                 <div class="input__fields">
                     <label for="phone-number">Phone number</label>
-                    <input autocomplete="off" placeholder="+45 12 34 56 78" type="text" name="user" id="phone-number" />
+                    <input autocomplete="off" placeholder="" type="text" name="user" id="phone-number" />
                 </div>
             </div>
 
             <h3>Security Settings</h3>
             <div>
-                <img src="../media/images/icons/password.svg" alt="icon" />
+                <img src="../media/images/icons/password.svg" alt="icon"/>
                 <div class="input__fields">
                     <label for="password">Password</label>
-                    <input autocomplete="off" placeholder="password" type="password" name="password" id="password" />
+                    <input autocomplete="off" placeholder="${_user !== undefined ? _user.password : 'Loading'}" type="password" name="password" id="password" />
                 </div>
             <img onclick="showPasword()" id="showPassword" src="../media/images/icons/eye.svg" alt="icon" />
             </div>
