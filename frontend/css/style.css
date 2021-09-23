@@ -290,19 +290,73 @@ nav ul .nav__active .stroke {
   line-height: 21px;
 }
 
-#view__home #home__days {
+#view__home h3 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  color: #AAD4C5;
+}
+
+#view__home #weekMonth {
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#view__home div {
+  position: relative;
+}
+
+#view__home div img {
+  width: 13px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  fill: #7c9aa0;
+}
+
+#view__home div #arrowleft {
+  left: -15px;
+}
+
+#view__home div #arrowright {
+  right: -15px;
+}
+
+#view__home div #home__days {
   overflow: auto;
   white-space: nowrap;
 }
 
-#view__home #home__days div {
+#view__home div #home__days .nd {
   display: inline-block;
-  background: #66848A;
+  background: rgba(102, 132, 138, 0.56);
   border-radius: 10px;
   text-align: center;
   margin: 5px;
-  width: 38px;
+  width: 45px;
   padding: 20px 0px 20px;
+}
+
+#view__home div #home__days .activeButton {
+  background: rgba(255, 255, 255, 0.17);
+}
+
+#view__home #workoutContainer {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.17);
+  border-radius: 10px;
+}
+
+#view__home #workoutContainer #workoutContainer__header {
+  padding: 20px 20px;
 }
 
 #view__plans h2 {
