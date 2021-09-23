@@ -10,24 +10,21 @@ export default function Plans(){
 
     window.updatePlans = () => {
 
-        let data = [
-            {
-                squads:123,
-            },
-            {
-                curls:123,
-            }
-        ]
+        let newPlan = {
+            name: 'Squads',
+            repeat: [
+                'monday',
+                'friday,'
+            ],
+            
+        }
 
         fetch(__ENV + '/api/plans', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            credentials: 'include',
-            mode: 'cors',
-            secure: true,
-            body: JSON.stringify(data),
+            body: JSON.stringify(['1', '2']),
         })
             .then(res => res.json())
             .then(data => console.log(data))

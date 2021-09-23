@@ -11,6 +11,9 @@ const userSchema = new Schema({
     email: {
         type: String,
     },
+    phoneNumber: {
+        type: String,
+    },
     history: {
         type: Array
     },

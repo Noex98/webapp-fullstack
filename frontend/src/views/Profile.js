@@ -3,13 +3,41 @@ import Nav from '../components/Nav.js'
 import Background from '../components/Background.js'
 import Redirect from '../utils/Redirect.js'
 import { user } from '../Store.js'
+import __ENV from '../env.js'
+import ReRender from '../utils/ReRender.js'
 
 
 export default function Profile(){
 
     let _user = user.data()
 
-    console.log(_user)
+    window.updateData = (updatedKey, updatedValue) => {
+
+        fetch(__ENV + '/api/user', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                key: updatedKey,
+                value: updatedValue,
+            }),
+        })
+            .then(res => res.json())
+            .then(data => Rere)
+    }
+    
+    function returnNumber() {
+        if (_user !== undefined) {
+            if (_user.phoneNumber) {
+                return _user.phoneNumber
+            } else {
+                return 'Registrer phonenumber'
+            }
+        } else {
+            return 'Loading'
+        }
+    }
 
     // Invalidate login token and redirect to login
     window.logout = () => {
@@ -55,30 +83,30 @@ export default function Profile(){
             <div>
                 <img src="../media/images/icons/phone.svg" alt="icon" />   
                 <div class="input__fields">
-                    <label for="phone-number">Phone number</label>
-                    <input autocomplete="off" placeholder="" type="text" name="user" id="phone-number" />
+                    <label for="phoneNumber">Phone number</label>
+                    <input autocomplete="off" placeholder="${returnNumber()}" type="text" name="user" id="phoneNumber" />
                 </div>
             </div>
 
             <h3>Security Settings</h3>
-            <div>
-                <img src="../media/images/icons/password.svg" alt="icon"/>
-                <div class="input__fields">
-                    <label for="password">Password</label>
-                    <input autocomplete="off" placeholder="${_user !== undefined ? _user.password : 'Loading'}" type="password" name="password" id="password" />
-                </div>
-            <img onclick="showPasword()" id="showPassword" src="../media/images/icons/eye.svg" alt="icon" />
+            <div class="change__password" onclick="changePassword()">
+                    <img src="../media/images/icons/password.svg" alt="icon"/>
+                    <p>Change password</p>
             </div>
 
             <h3>App Settings</h3>
             <div>
                 <img src="../media/images/icons/notification.svg" alt="icon" />
-                <div class="input__fields">
-                    <input type="text" placeholder="Notifications">
+                <div class="input__fields notifications">
+                    <p>Notifications</p>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
                 </div>            
             </div>
 
-            <button onclick="logout()" type="button">Logout</button>
+            <button onclick="logout()" type="button">Log out</button>
         </div>
         ${Nav()}
     `)
