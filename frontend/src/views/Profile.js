@@ -2,9 +2,14 @@ import Header from '../components/Header.js'
 import Nav from '../components/Nav.js'
 import Background from '../components/Background.js'
 import Redirect from '../utils/Redirect.js'
+import { user } from '../Store.js'
 
 
 export default function Profile(){
+
+    let _user = user.data()
+
+    console.log(_user)
 
     // Invalidate login token and redirect to login
     window.logout = () => {
@@ -35,7 +40,7 @@ export default function Profile(){
                 <img src="../media/images/icons/profile.svg" alt="icon" />   
                 <div class="input__fields">
                     <label for="user">Username</label>
-                    <input autocomplete="off" placeholder="Lukas" type="text" name="user" id="user" />
+                    <input autocomplete="off" placeholder="${_user !== undefined ? _user.username : 'Loading'}" type="text" name="user" id="user" />
                 </div>
             </div>
 
