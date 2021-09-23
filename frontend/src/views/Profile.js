@@ -1,9 +1,16 @@
 import Header from '../components/Header.js'
 import Nav from '../components/Nav.js'
 import Background from '../components/Background.js'
+import Redirect from '../utils/Redirect.js'
 
 
 export default function Profile(){
+
+    // Invalidate login token and redirect to login
+    window.logout = () => {
+        document.cookie = 'user_Id=0; expires=Thu, 30 Dec 2013 12:00:00 UTC'
+        Redirect('/login')
+    }
 
     return (/*html*/ `
         ${Background()}
@@ -39,7 +46,7 @@ export default function Profile(){
                 <input type="text" placeholder="Notifacations">
             </div>
 
-            <button type="button">Logout</button>
+            <button onclick="logout()" type="button">Logout</button>
         </div>
         ${Nav()}
     `)
