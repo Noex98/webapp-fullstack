@@ -9,7 +9,7 @@ export let user = {
         if (user.loaded){
             return user.dataStore
         } else {
-            fetch('https://randomuser.me/api/')
+            fetch(__ENV + '/api/user')
                 .then(res => res.json())
                 .then(data => {
                     if (data.auth === false){
@@ -31,7 +31,7 @@ export let plans = {
         if (plans.loaded){
             return plans.dataStore
         } else {
-            fetch('')
+            fetch(__ENV + '/api/plans')
                 .then(res => res.json())
                 .then(data => {
                     if (data.auth === false){
@@ -46,21 +46,21 @@ export let plans = {
     }
 }
 
-export let prevWorkouts = {
+export let history = {
     loaded: false,
     dataStore: undefined,
     data: () => {
-        if (prevWorkouts.loaded){
-            return prevWorkouts.dataStore
+        if (history.loaded){
+            return history.dataStore
         } else {
-            fetch('')
+            fetch(__ENV + '/api/history')
                 .then(res => res.json())
                 .then(data => {
                     if (data.auth === false){
                         Redirect('/login')
                     } else {
-                        prevWorkouts.dataStore = data 
-                        prevWorkouts.loaded = true
+                        history.dataStore = data 
+                        history.loaded = true
                         navigateTo()
                     }
                 })

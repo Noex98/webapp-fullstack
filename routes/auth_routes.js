@@ -71,9 +71,6 @@ auth_routes.post('/api/loginupdate', (req, res) => {
 
 // Protect frontend paths
 auth_routes.post('/api/auth', (req, res) => {
-    //console.log(crypt('abc'))
-    //console.log(req.cookies.user_Id)
-    //console.log(crypt(req.cookies.user_Id))
     User.findById(req.cookies.user_Id).exec()
         .then(result => {
             if (result){
@@ -94,7 +91,7 @@ auth_routes.post('/api/auth', (req, res) => {
 })
 
 // Authenticate requests
-auth_routes.all('/api/*', (req, res) => {
+auth_routes.all('/api/*', (req, res, next) => {
     User.findById(req.cookies.user_Id).exec()
         .then(result => {
             if (result){
