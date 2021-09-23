@@ -44,7 +44,11 @@
             font-size: 11px;
             color: #A4CDBF;
             font-weight: normal;
-            text-align: left;
+            text-align: center;
+
+            &:first-child {
+                text-align: left;
+            }
         }
 
         td {
@@ -58,7 +62,7 @@
             }
 
             .td__numberInput {
-                align-items: center;
+                text-align: center;
             }
         }
     }

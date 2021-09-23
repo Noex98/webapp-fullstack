@@ -13,7 +13,6 @@ body {
   min-height: 100vh;
   color: #fff;
   font-family: 'Roboto';
-  overflow-y: hidden;
 }
 
 #root {
@@ -162,6 +161,10 @@ nav ul .nav__active .fill {
 
 nav ul .nav__active .stroke {
   stroke: #fff;
+}
+
+#navSpaceReserve {
+  height: 64px;
 }
 
 #background {
@@ -411,6 +414,10 @@ nav ul .nav__active .stroke {
   font-size: 11px;
   color: #A4CDBF;
   font-weight: normal;
+  text-align: center;
+}
+
+#view__plans table th:first-child {
   text-align: left;
 }
 
@@ -426,9 +433,7 @@ nav ul .nav__active .stroke {
 }
 
 #view__plans table td .td__numberInput {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  text-align: center;
 }
 
 #view__plans #addBtn {

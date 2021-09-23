@@ -3,6 +3,7 @@ import Link from '../utils/Link.js'
 export default function Nav(active){
 
     return ( /*html*/ `
+        <div id="navSpaceReserve"></div>
         <nav>
             <ul>
                 <li>
