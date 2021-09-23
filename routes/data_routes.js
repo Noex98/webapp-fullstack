@@ -22,54 +22,29 @@ data_routes.get('/api/user', (req, res) => {
     })
 })
 
-// Get plans
-data_routes.get('/api/plans', (req, res) => {
-    User.findById(req.cookies.user_Id).exec()
-    .then(result => {
-        if (result){
-            res.json(result.plans)
-        } else {
-            res.json({
-                auth: false
-            })
-        }
-    })
-    .catch(err => {
-        console.log(err)
-        res.json({
-            auth: false
-        })
-    })
-})
-
 // Update plans
 data_routes.put('/api/plans', (req, res) => {
-    User.findByIdAndUpdate({_id: req.cookies.user_Id}, 
-        {plans: req.body.plans}, (err, result) => {
+    User.findByIdAndUpdate(req.cookies.user_Id, 
+        {plans: req.body}, (err, result) => {
             if (err){
-                res.json()
+                res.json({err: 'Unidentified error'})
+            }else {
+                res.json(result.plans)
             }
     })
 })
 
-// Get history
-data_routes.get('/api/history', (req, res) => {
-    User.findById(req.cookies.user_Id).exec()
-    .then(result => {
-        if (result){
-            res.json(result.history)
-        } else {
-            res.json({
-                auth: false
-            })
-        }
-    })
-    .catch(err => {
-        console.log(err)
-        res.json({
-            auth: false
-        })
+// Update user
+data_routes.put('/api/user', (req, res) => {
+    User.findByIdAndUpdate(req.cookies.user_Id, 
+        {[req.body.key]: req.body.value}, (err, result) => {
+            if (err){
+                res.json({err: 'Unidentified error'})
+            }else {
+                res.json(result.plans)
+            }
     })
 })
+
 
 module.exports = data_routes
