@@ -1,11 +1,13 @@
 import Header from "../components/Header.js"
 import Link from "../utils/Link.js"
+import Background from "../components/Background.js"
 
 export default function Err404(){
 
     return (/*html*/ `
-        ${Header()}
-        <h1>404 component</h1>
-        ${Link('/', 'Back to home')}
+        ${Background()}
+        ${Header({backBtn: true})}
+        <h2>Oops, can't find this resource</h2>
+        ${Link('/', 'Take me back')}
     `)
 }

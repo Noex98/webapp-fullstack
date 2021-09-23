@@ -20,12 +20,15 @@ const routes = [
     }, {
         path: '/login',
         view: Login,
+        auth: false
     }, {
         path: '/new-user',
         view: NewUser,
+        auth: false
     }, {
         path: '/forgot-password',
         view: ForgotPassword,
+        auth: false
     }, {
         path: '/profile',
         view: Profile,
@@ -50,10 +53,18 @@ let root = document.getElementById('root')
 // Render view in the DOM
 function render(){
     let target = routes.find(element => element.path === window.location.pathname);
-    if (target.auth){
-        ProtectRoute()
+    
+    if (target === undefined){
+        root.innerHTML = Err404()
+    } else {
+        if (target.auth){
+            ProtectRoute()
+            root.innerHTML = target.view()
+        } else {
+            root.innerHTML = target.view()
+        }
     } 
-    root.innerHTML = target !== undefined ? target.view() : Err404()
+    
 }
 
 // Global navigation function
