@@ -358,7 +358,6 @@ nav ul .nav__active {
 .profile__container label {
   font-size: 13px;
   font-weight: 500;
-  padding-bottom: 5px;
 }
 
 .profile__container .input__fields {
@@ -377,6 +376,7 @@ nav ul .nav__active {
 .profile__container input {
   background: none;
   border: none;
+  margin-top: 6px;
 }
 
 .profile__container input::-webkit-input-placeholder {
