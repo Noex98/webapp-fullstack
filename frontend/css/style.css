@@ -171,6 +171,11 @@ nav ul .nav__active {
   background: linear-gradient(180deg, #4AB28D 0%, #296A60 31.77%, #1A484B 48.44%, #082032 77.5%);
 }
 
+#view__login #background {
+  background: -webkit-gradient(linear, left top, left bottom, from(#4AB28D), color-stop(39.58%, #082032));
+  background: linear-gradient(180deg, #4AB28D 0%, #082032 39.58%);
+}
+
 #view__login .logo {
   font-size: 96px;
   font-weight: bold;
@@ -192,9 +197,11 @@ nav ul .nav__active {
 #view__login .container__inputs > div {
   background: rgba(255, 255, 255, 0.17);
   border-radius: 7px;
-  padding-top: 8px;
-  padding-bottom: 12px;
-  margin-bottom: 21px;
+  padding: 12px 4px 18px 18px;
+  margin-bottom: 23px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 #view__login .container__inputs > div .inputs__fields {
@@ -205,6 +212,48 @@ nav ul .nav__active {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding-left: 16px;
+  width: 100%;
+}
+
+#view__login .container__inputs > div .inputs__fields label {
+  font-size: 13px;
+}
+
+#view__login .container__inputs > div .inputs__fields input {
+  background: none;
+  border: none;
+  outline: none;
+  color: white;
+  padding-top: 8px;
+  font-size: 18px;
+}
+
+#view__login .container__inputs > div #showPassword {
+  padding-right: 18px;
+}
+
+#view__login .container__remember {
+  padding-left: 20px;
+}
+
+#view__login .container__loginBtn {
+  width: 100%;
+  padding: 21px;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  color: white;
+  background: #47AB89;
+  -webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 7px;
+  margin-top: 21px;
+}
+
+#view__login .container__link {
+  text-align: center;
+  margin-top: 17px;
 }
 
 #view__home h1 {

@@ -1,4 +1,9 @@
 #view__login{
+
+    #background {
+        background: linear-gradient(180deg, #4AB28D 0%, #082032 39.58%);
+    }
+
     .logo {
         font-size: 96px;
         font-weight: bold;
@@ -17,15 +22,55 @@
         >div {
             background:rgba(255, 255, 255, 0.17);
             border-radius: 7px;
-            padding-top:8px;
-            padding-bottom: 12px;
-            margin-bottom: 21px;
+            padding: 12px 4px 18px 18px;
+            margin-bottom: 23px;
+            display:flex;
             
             .inputs__fields {
                 display:flex;
                 flex-direction: column;
+                padding-left: 16px;
+                width:100%;
+
+                label {
+                    font-size: 13px;
+                }
+
+                input {
+                    background:none;
+                    border:none;
+                    outline:none;
+                    color: white;
+                    padding-top: 8px;
+                    font-size: 18px;
+                }
+            }
+            #showPassword {
+                padding-right:18px;
             }
         }
 
+    }
+
+    .container__remember {
+        padding-left: 20px;
+    }
+
+    .container__loginBtn {
+        width:100%;
+        padding:21px;
+        font-weight: bold;
+        font-size:18px;
+        text-align: center;
+        color:white;
+        background: #47AB89;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 7px;
+        margin-top: 21px;
+    }
+
+    .container__link {
+        text-align: center;
+        margin-top: 17px;
     }
 }
