@@ -1,5 +1,5 @@
 .profile__container {
-    padding: 0 20px;
+    padding-top:32px;
 
     div {
         background:rgba(255, 255, 255, 0.17);
@@ -11,14 +11,13 @@
         display: flex;
         flex-direction: flex;
         justify-content: center;
-        padding-right: 15px;
+        padding-right: 10px;
     }
 
     h1 {
         font-size: 24px;
         font-weight: bold;
         padding-bottom: 16px;
-        margin-top: 32px;
     }
 
     h2 {
