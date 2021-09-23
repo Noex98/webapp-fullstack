@@ -314,18 +314,16 @@ nav ul .nav__active {
 }
 
 .profile__container {
-  padding: 0 23px;
+  padding: 0 20px;
 }
 
 .profile__container div {
   background: rgba(255, 255, 255, 0.17);
   border-radius: 7px;
-  padding-top: 8px;
   width: 100%;
-  max-height: 50px;
-  height: 50px;
-  padding-bottom: 12px;
-  margin-bottom: 21px;
+  max-height: 60px;
+  height: 60px;
+  margin-bottom: 18px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -333,49 +331,81 @@ nav ul .nav__active {
   -webkit-box-direction: normal;
       -ms-flex-direction: flex;
           flex-direction: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .profile__container h1 {
-  font-size: 36px;
+  font-size: 24px;
   font-weight: bold;
-  padding-bottom: 25px;
+  padding-bottom: 16px;
+  margin-top: 32px;
 }
 
 .profile__container h2 {
   font-size: 13px;
   padding-bottom: 5px;
+  font-weight: normal;
 }
 
 .profile__container h3 {
   font-size: 13px;
-  padding-bottom: 5px;
-  margin-top: 41px;
+  margin: 16px 0 5px 0;
+  font-weight: normal;
 }
 
-.profile__container .profile__container input {
+.profile__container label {
+  font-size: 13px;
+  font-weight: 500;
+  padding-bottom: 5px;
+}
+
+.profile__container .input__fields {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   background: none;
   border: none;
   font-size: 18px;
 }
 
-.profile__container .profile__container input::-webkit-input-placeholder {
-  color: white;
+.profile__container input {
+  background: none;
+  border: none;
 }
 
-.profile__container .profile__container input:-ms-input-placeholder {
+.profile__container input::-webkit-input-placeholder {
   color: white;
+  font-size: 18px;
+  font-weight: normal;
 }
 
-.profile__container .profile__container input::-ms-input-placeholder {
+.profile__container input:-ms-input-placeholder {
   color: white;
+  font-size: 18px;
+  font-weight: normal;
 }
 
-.profile__container .profile__container input::placeholder {
+.profile__container input::-ms-input-placeholder {
   color: white;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.profile__container input::placeholder {
+  color: white;
+  font-size: 18px;
+  font-weight: normal;
 }
 
 .profile__container img {
-  margin: 0 15px;
+  margin: auto 16px;
+  max-height: 22px;
 }
 
 .profile__container button {
@@ -386,7 +416,8 @@ nav ul .nav__active {
   border-radius: 7px;
   font-size: 18px;
   color: white;
-  padding: 20px 0;
+  height: 60px;
   border: none;
+  margin-top: 30px;
 }
 /*# sourceMappingURL=style.css.map */
