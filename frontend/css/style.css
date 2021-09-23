@@ -335,6 +335,10 @@ nav ul .nav__active .stroke {
 
 .profile__container {
   padding: 0 20px;
+  /* The switch - the box around the slider */
+  /* Hide default HTML checkbox */
+  /* The slider */
+  /* Rounded sliders */
 }
 
 .profile__container div {
@@ -375,6 +379,11 @@ nav ul .nav__active .stroke {
   font-weight: normal;
 }
 
+.profile__container p {
+  font-size: 18px;
+  margin: auto 0;
+}
+
 .profile__container label {
   font-size: 13px;
   font-weight: 500;
@@ -397,6 +406,9 @@ nav ul .nav__active .stroke {
   background: none;
   border: none;
   margin-top: 6px;
+  outline: none;
+  color: white;
+  font-size: 18px;
 }
 
 .profile__container input::-webkit-input-placeholder {
@@ -439,5 +451,69 @@ nav ul .nav__active .stroke {
   height: 60px;
   border: none;
   margin-top: 30px;
+}
+
+.profile__container .change__password {
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+.profile__container .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.profile__container .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.profile__container .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.profile__container .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.profile__container input:checked + .slider {
+  background-color: #47AB89;
+}
+
+.profile__container input:focus + .slider {
+  -webkit-box-shadow: 0 0 1px #47AB89;
+          box-shadow: 0 0 1px #47AB89;
+}
+
+.profile__container input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.profile__container .slider.round {
+  border-radius: 34px;
+}
+
+.profile__container .slider.round:before {
+  border-radius: 50%;
 }
 /*# sourceMappingURL=style.css.map */
