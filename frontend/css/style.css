@@ -334,7 +334,7 @@ nav ul .nav__active .stroke {
 }
 
 .profile__container {
-  padding: 0 20px;
+  padding-top: 32px;
   /* The switch - the box around the slider */
   /* Hide default HTML checkbox */
   /* The slider */
@@ -358,14 +358,13 @@ nav ul .nav__active .stroke {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding-right: 15px;
+  padding-right: 10px;
 }
 
 .profile__container h1 {
   font-size: 24px;
   font-weight: bold;
   padding-bottom: 16px;
-  margin-top: 32px;
 }
 
 .profile__container h2 {
