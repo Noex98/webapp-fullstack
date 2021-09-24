@@ -784,4 +784,37 @@ nav ul .nav__active .stroke {
   text-align: center;
   margin-top: 20px;
 }
+
+h1 {
+  margin: 15px 0px;
+}
+
+h2 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  margin: 15px 0px;
+}
+
+.workoutContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 25px 25px 40px;
+}
+
+.workoutContainer h3 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 42px;
+}
 /*# sourceMappingURL=style.css.map */

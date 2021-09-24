@@ -6,7 +6,7 @@ import { user } from '../Store.js'
 export default function Home(){
 
     let _user = user.data();
-    let _plans = _user.plans
+    let _plans = _user.plans;
 
     console.log(_plans)
 
@@ -54,12 +54,6 @@ export default function Home(){
     _days.push(dayAhead)
     }
  
-
-
-    //Display workout 
-    
- 
-
     // Append to DOM
     function appendDays(_days){
         let html_template = ''
