@@ -7,20 +7,27 @@ import Redirect from "../utils/Redirect.js";
 
 export default function Plans(){
 
+    let exerciseCount = 1
+
     let data = user.data()
 
-    window.updatePlans = () => {
-
-        
+    // Create a new object with the given information
+    // And render the next page
+    window.savePlanData = () => {
 
         let rows = document.querySelectorAll('tbody tr')
 
+        let nameInput = document.querySelector('#plans__inputCont .inputCont__name').value
+
+        // Schema for the new plan object
+
         let newPlan = {
-            name: document.querySelector('.inputCont__name').value,
+            name: nameInput.length !== 0 ? nameInput : 'Untitled',
             repeat: [],
             exercises: [],
         }
 
+        // Collect data from each row into an array
         for (const row of rows) {
             let exercise = {
                 name: row.querySelector('.td__name input').value,
@@ -31,22 +38,27 @@ export default function Plans(){
             newPlan.exercises.push(exercise)
         }
 
+        // Push the new plan to the array containing all plans
         data.plans.push(newPlan)
 
-        
-        fetch(__ENV + '/api/plans', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data.plans),
-        })
-            .then(res => res.json())
-            .then(data => Redirect('/'))
-        
+        renderNextPage(newPlan)
+
+
     }
 
-    let exerciseCount = 1
+    function renderNextPage(newPlan){
+
+        // Set plan name
+        document.querySelector('.inputContSet__nameDisplay').innerText = newPlan.name
+
+        // Hide first input container
+        document.getElementById('plans__inputCont').style.display = "none"
+
+        // Show next input container 
+        document.getElementById('plans__inputContSet').style.display = "flex"
+    }
+
+    
 
     window.addExercise = () => {
         exerciseCount += 1
@@ -73,6 +85,18 @@ export default function Plans(){
         let tableBody = document.querySelector('tbody')
         tableBody.appendChild(tr)
 
+    }
+
+    function sendData(data){
+        fetch(__ENV + '/api/plans', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data),
+        })
+            .then(res => res.json())
+            .then(data => Redirect('/'))
     }
 
     return (/*html*/ `
@@ -114,9 +138,26 @@ export default function Plans(){
 
             <img id="addBtn" src="../media/images/icons/add.svg" alt="icon" onclick="addExercise()" />
 
-            <button id="finishBtn" onclick="updatePlans()">Finish</button>
+            <button class="finishBtn" onclick="savePlanData()">Next</button>
         </div>
+
+
+        <div id="plans__inputContSet">
+            <div class="inputContSet__nameDisplay"></div>
+
+            <div class="inputContSet__repeat">
+                <div class="repeat__title">
+                    Days to repeat
+                </div>
+            </div>
+
+            <button class="finishBtn" onclick="savePlanData()">Finish</button>
+        </div>
+
     </div>
+
+
+
     ${Nav('plans')}
     `)
 }
