@@ -87,6 +87,10 @@ export default function Plans(){
 
     }
 
+    window.selectRepeatDay = (element) => {
+        element.classList.toggle('selected')
+    }
+
     function sendData(data){
         fetch(__ENV + '/api/plans', {
             method: 'PUT',
@@ -147,7 +151,16 @@ export default function Plans(){
 
             <div class="inputContSet__repeat">
                 <div class="repeat__title">
-                    Days to repeat
+                    <div>Days to repeat</div>
+                </div>
+                <div class="repeat__btnCont">
+                    <div onclick="selectRepeatDay(this)" >M</div>
+                    <div onclick="selectRepeatDay(this)" >T</div>
+                    <div onclick="selectRepeatDay(this)" >W</div>
+                    <div onclick="selectRepeatDay(this)" >T</div>
+                    <div onclick="selectRepeatDay(this)" >F</div>
+                    <div onclick="selectRepeatDay(this)" >S</div>
+                    <div onclick="selectRepeatDay(this)" >S</div>
                 </div>
             </div>
 
