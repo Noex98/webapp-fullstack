@@ -63,20 +63,25 @@ export default function Home(){
     // Append to DOM
     function appendDays(_days){
         let html_template = ''
-        for (let day of _days){
-            html_template += /*html*/ `<div class="nd" id="date${day.dateOfMonth}" onclick="changeStyle(this.id)"><div id="n">${day.dayOfWeek}</div><br> <div id="d">${day.dateOfMonth}</div></div>`
+        for (let [i, day] of _days.entries()){
+            html_template += /*html*/ `
+
+                <div class="nd ${i == 0 ? 'activeButton' : ''}" id="date${day.dateOfMonth}" onclick="changeStyle(this.id)">
+                    <div id="n">${day.dayOfWeek}</div><br> 
+                    <div id="d">${day.dateOfMonth}</div>
+                </div>`
         }
         return html_template
     }
    //Change style onclick
-   window.changeStyle = (clicked_id) => {
-       let buttons = document.querySelectorAll(".nd");
-       for (const button of buttons) {
+    window.changeStyle = (clicked_id) => {
+        let buttons = document.querySelectorAll(".nd");
+        for (const button of buttons) {
            button.classList.remove("activeButton");
-       }
-    document.getElementById(clicked_id).classList.add("activeButton")
-    console.log(buttons);
-}
+        }
+        document.getElementById(clicked_id).classList.add("activeButton")
+    }
+
     return (/*html*/ `
         ${Background()}
         ${Header({profileBtn: true})}
@@ -84,22 +89,24 @@ export default function Home(){
             <h2>Hello ${_user !== undefined ? _user.username : "Loading"}💪<h2>
             <h1>Welcome Back!</h1>
             <div id="weekMonth">
-            <h2>${getMonth(today)}</h2> 
+                <h2>${getMonth(today)}</h2> 
             </div>
             <div>
-            <img id="arrowleft" src="../media/images/icons/arrow_left.svg">
-            
-            <div id="home__days">
-                ${appendDays(_days)}
-            </div>
-            <img id="arrowright" src="../media/images/icons/arrow_right.svg">
+                <img id="arrowleft" src="../media/images/icons/arrow_left.svg">
+
+                <div id="home__days">
+                    ${appendDays(_days)}
+                </div>
+
+                <img id="arrowright" src="../media/images/icons/arrow_right.svg">
             </div>
           
             <div id="workoutContainer">
-            <div id="workoutContainer__header">
-            <h3>Today's plan</h3>
-            <h1>No Workouts</h1></div>
-            <p></p>
+                <div id="workoutContainer__header">
+                    <h3>Today's plan</h3>
+                    <h1>No Workouts</h1></div>
+                </div>
+            </div>
         </div>
      
         ${Nav()}
