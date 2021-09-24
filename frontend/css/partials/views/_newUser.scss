@@ -1,0 +1,77 @@
+#view__newUser {
+
+    h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0 0 32px 10px;
+    }
+    
+    p {
+        font-size: 13px;
+        font-weight: normal;
+        margin-left: 10px;
+    }
+
+    .container__inputs {
+        margin-top: 45px;
+    
+        >div {
+            background: rgba(255, 255, 255, 0.17);
+            border-radius: 7px;
+            padding: 12px 4px 18px 18px;
+            margin-top: 35px;
+            display: flex;
+
+            .input__fields {
+                display: flex;
+                flex-direction: column;
+                padding-left: 15px;
+                width: 100%;
+            }
+
+            label {
+                font-size: 13px;
+                font-weight: 500;
+            }
+
+            input {
+                background: none;
+                border: none;
+                outline: none;
+                color: white;
+                padding-top: 8px;
+                font-size: 18px;
+            }
+
+            input::placeholder {
+                color: white;
+            }
+        }
+        #showPassword {
+            padding-right: 18px;
+        }
+    }
+
+    .container__terms {
+        margin: 30px 0 0 15px;
+    }
+
+    .container__signupBtn {
+        width: 100%;
+        padding: 20px;
+        font-weight: bold;
+        font-size: 18px;
+        text-align: center;
+        color: white;
+        background: #47AB89;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 7px;
+        border: none;
+        margin-top: 35px;
+    }
+
+    .container__link {
+        text-align: center;
+        margin-top: 20px;
+    }
+}
