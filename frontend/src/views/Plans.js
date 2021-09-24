@@ -11,6 +11,12 @@ export default function Plans(){
 
     let data = user.data()
 
+    let _newPlan = {
+        name: '',
+        repeat: [],
+        exercises: []
+    }
+
     // Create a new object with the given information
     // And render the next page
     window.savePlanData = () => {
@@ -38,12 +44,10 @@ export default function Plans(){
             newPlan.exercises.push(exercise)
         }
 
-        // Push the new plan to the array containing all plans
-        data.plans.push(newPlan)
+        _newPlan = newPlan
 
+        // Load next page
         renderNextPage(newPlan)
-
-
     }
 
     function renderNextPage(newPlan){
@@ -91,7 +95,23 @@ export default function Plans(){
         element.classList.toggle('selected')
     }
 
-    function sendData(data){
+    window.sendNewPlan = () => {
+
+        let repeat = []
+        let repeatBtns = document.querySelectorAll('.repeat__btnCont div')
+
+        for (const btn of repeatBtns) {
+            if (btn.classList.contains('selected')){
+                repeat.push(btn.dataset.value)
+            }
+        }
+
+        _newPlan.repeat = repeat
+        
+
+        // Push the new plan to the array containing all plans
+        data.plans.push(_newPlan)
+        
         fetch(__ENV + '/api/plans', {
             method: 'PUT',
             headers: {
@@ -101,6 +121,7 @@ export default function Plans(){
         })
             .then(res => res.json())
             .then(data => Redirect('/'))
+            
     }
 
     return (/*html*/ `
@@ -154,17 +175,17 @@ export default function Plans(){
                     <div>Days to repeat</div>
                 </div>
                 <div class="repeat__btnCont">
-                    <div onclick="selectRepeatDay(this)" >M</div>
-                    <div onclick="selectRepeatDay(this)" >T</div>
-                    <div onclick="selectRepeatDay(this)" >W</div>
-                    <div onclick="selectRepeatDay(this)" >T</div>
-                    <div onclick="selectRepeatDay(this)" >F</div>
-                    <div onclick="selectRepeatDay(this)" >S</div>
-                    <div onclick="selectRepeatDay(this)" >S</div>
+                    <div data-value="monday" onclick="selectRepeatDay(this)" >M</div>
+                    <div data-value="tuesday" onclick="selectRepeatDay(this)" >T</div>
+                    <div data-value="wednesday" onclick="selectRepeatDay(this)" >W</div>
+                    <div data-value="thursday" onclick="selectRepeatDay(this)" >T</div>
+                    <div data-value="friday" onclick="selectRepeatDay(this)" >F</div>
+                    <div data-value="saturday" onclick="selectRepeatDay(this)" >S</div>
+                    <div data-value="sunday" onclick="selectRepeatDay(this)" >S</div>
                 </div>
             </div>
 
-            <button class="finishBtn" onclick="savePlanData()">Finish</button>
+            <button class="finishBtn" onclick="sendNewPlan()">Finish</button>
         </div>
 
     </div>
