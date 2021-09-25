@@ -14,7 +14,7 @@ export default function Home(){
     // Get todays date and day of the week
     let today = new Date();
     function getWeekDay(today){
-        let days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]
+        let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         return days[today.getDay()]
     }
 
@@ -55,25 +55,79 @@ export default function Home(){
     }
  
     // Append to DOM
-    function appendDays(_days){
+    function appendDays(){
         let html_template = ''
         for (let [i, day] of _days.entries()){
             html_template += /*html*/ `
 
-                <div class="nd ${i == 0 ? 'activeButton' : ''}" id="date${day.dateOfMonth}" onclick="changeStyle(this.id)">
-                    <div id="n">${day.dayOfWeek}</div><br> 
-                    <div id="d">${day.dateOfMonth}</div>
+                <div class="nd ${i == 0 ? 'activeButton' : ''}" id="date${day.dateOfMonth}" data-date="${day.dayOfWeek}" onclick="changeStyle(this.id)">
+                    <div class="n">${day.dayOfWeek.substring(0, 2)}</div><br> 
+                    <div class="d">${day.dateOfMonth}</div>
                 </div>`
+
         }
         return html_template
     }
    //Change style onclick
+    
+
     window.changeStyle = (clicked_id) => {
+
+        let clickedBtn = document.getElementById(clicked_id)
+
+        // Get list of all buttons
         let buttons = document.querySelectorAll(".nd");
+
+        // Remove active class from all buttons
         for (const button of buttons) {
            button.classList.remove("activeButton");
         }
-        document.getElementById(clicked_id).classList.add("activeButton")
+
+        // Add active class to the clicked element
+        clickedBtn.classList.add("activeButton")
+        
+        document.getElementById('workoutContainer').innerHTML = showPlan(clickedBtn.dataset.date.toLowerCase())
+    }
+    
+    function showPlan(day){
+
+        let plansShowed = _plans.filter(plan => plan.repeat.includes(day))
+
+        // No plans for the day
+        if (plansShowed.length == 0){
+            return (/*html*/ `
+                <div id="workoutContainer__header">
+                    <h3>No plans</h3>
+                </div>
+            `)
+        // One plan for the day
+        } else if (plansShowed.length == 1){
+            let plan = plansShowed[0]
+            return (/*html*/ `
+                <div id="workoutContainer__header">
+                    <h3>Today's plan</h3>
+                    <h1>${plan.name}</h1>
+                </div>
+            `)
+        // More than 1 plan for the day
+        } else {
+
+            let html_template = ''
+
+            for (const plan of plansShowed) {
+                html_template += /*html*/`
+                    <h1>${plan.name}</h1>
+                `
+            }
+
+            return (/*html*/ `
+            <div id="workoutContainer__header">
+                <h3>You have ${plansShowed.length + 1} plans today</h3>
+                ${html_template}
+            </div>
+        `)
+        }
+
     }
 
     return (/*html*/ `
@@ -89,17 +143,14 @@ export default function Home(){
                 <img id="arrowleft" src="../media/images/icons/arrow_left.svg">
 
                 <div id="home__days">
-                    ${appendDays(_days)}
+                    ${appendDays()}
                 </div>
 
                 <img id="arrowright" src="../media/images/icons/arrow_right.svg">
             </div>
           
             <div id="workoutContainer">
-                <div id="workoutContainer__header">
-                    <h3>Today's plan</h3>
-                    <h1>No Workouts</h1></div>
-                </div>
+                ${showPlan(day.dayOfWeek)}
             </div>
         </div>
      

@@ -1,15 +1,15 @@
 import Header from "../components/Header.js"
 import Nav from "../components/Nav.js";
 import Background from "../components/Background.js"
-import { user } from "../Store.js";
 import __ENV from "../env.js";
 import Redirect from "../utils/Redirect.js";
+import { user } from "../Store.js";
 
 export default function Plans(){
 
     let exerciseCount = 1
 
-    let data = user.data()
+    let _user = user.data()
 
     let _newPlan = {
         name: '',
@@ -88,7 +88,6 @@ export default function Plans(){
         `
         let tableBody = document.querySelector('tbody')
         tableBody.appendChild(tr)
-
     }
 
     window.selectRepeatDay = (element) => {
@@ -107,17 +106,15 @@ export default function Plans(){
         }
 
         _newPlan.repeat = repeat
-        
 
-        // Push the new plan to the array containing all plans
-        data.plans.push(_newPlan)
+        _user.plans.push(_newPlan)
         
         fetch(__ENV + '/api/plans', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify(_user.plans),
         })
             .then(res => res.json())
             .then(data => Redirect('/'))

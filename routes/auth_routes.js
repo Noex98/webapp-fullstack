@@ -44,23 +44,29 @@ auth_routes.post('/api/loginupdate', (req, res) => {
 
     User.findOne({ 
         $or: [
-            { username: req.body.username, password: req.body.password },
-            { email: req.body.email, password: req.body.password }
+            { username: req.body.username},
+            { email: req.body.email}
         ]
     }).exec()
         .then(result => {
             if (result){
-                res.send('Brugernavn eller email er optaget')
+                res.json({
+                    login: false,
+                    err: 'Username or email is already in use'
+                })
             } else {
                 const user = new User(req.body)
                 user.save()
                     .then(result => {
                         console.log('Succes')
-                        res.send('ok')
+                        res.json({login: true})
                     })
                     .catch(err => {
                         console.log(err)
-                        res.send('ik ok')
+                        res.json({
+                            login:false,
+                            err: 'Unidentified error'
+                        })
                     })
             }
         })
