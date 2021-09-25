@@ -100,20 +100,25 @@ export default function Home(){
                     <h3>No plans</h3>
                 </div>
             `)
+            
         // One plan for the day
         } else if (plansShowed.length == 1){
+
             let plan = plansShowed[0]
+
             return (/*html*/ `
                 <div id="workoutContainer__header">
                     <h3>Today's plan</h3>
                     <h1>${plan.name}</h1>
                 </div>
             `)
+
         // More than 1 plan for the day
         } else {
 
             let html_template = ''
 
+            // html for each plan
             for (const plan of plansShowed) {
                 html_template += /*html*/`
                     <h1>${plan.name}</h1>
