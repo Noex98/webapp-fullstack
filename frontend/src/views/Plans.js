@@ -127,7 +127,9 @@ export default function Plans(){
             body: JSON.stringify(_user.plans),
         })
             .then(res => res.json())
-            .then(data => Redirect('/'))
+            .then(data => {
+                user.update()
+                Redirect('/')})
             
     }
 

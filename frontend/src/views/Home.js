@@ -137,7 +137,7 @@ export default function Home(){
 
             return (/*html*/ `
             <div id="workoutContainer__header">
-                <h3>You have ${plansShowed.length + 1} plans today</h3>
+                <h3>You have ${plansShowed.length} plans today</h3>
                 ${html_template}
             </div>
         `)
