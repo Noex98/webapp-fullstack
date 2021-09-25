@@ -5,11 +5,21 @@ import Redirect from '../utils/Redirect.js'
 import { user } from '../Store.js'
 import __ENV from '../env.js'
 import ReRender from '../utils/ReRender.js'
+import Spinner from '../components/Spinner.js'
 
 
 export default function Profile(){
 
     let _user = user.data()
+
+    if (_user === undefined){
+        return(/*html*/`
+            ${Background()}
+            ${Header()}
+            ${Spinner()}
+            ${Nav()}
+        `)
+    }
 
     window.updateData = (updatedKey, updatedValue) => {
 
