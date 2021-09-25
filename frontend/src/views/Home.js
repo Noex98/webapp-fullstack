@@ -1,14 +1,24 @@
 import Header from '../components/Header.js'
 import Nav from '../components/Nav.js'
 import Background from '../components/Background.js'
+import Spinner from '../components/Spinner.js'
 import { user } from '../Store.js' 
 
 export default function Home(){
 
     let _user = user.data();
+
+    if (_user === undefined){
+        return(/*html*/`
+            ${Background()}
+            ${Header()}
+            ${Spinner()}
+            ${Nav()}
+        `)
+    }
+
     let _plans = _user.plans;
 
-    console.log(_plans)
 
     let _days = []
     // Get todays date and day of the week
@@ -158,6 +168,7 @@ export default function Home(){
                 ${showPlan(day.dayOfWeek)}
             </div>
         </div>
+        
      
         ${Nav()}
     `)

@@ -4,12 +4,22 @@ import Background from "../components/Background.js"
 import __ENV from "../env.js";
 import Redirect from "../utils/Redirect.js";
 import { user } from "../Store.js";
+import Spinner from "../components/Spinner.js";
 
 export default function Plans(){
 
-    let exerciseCount = 1
-
     let _user = user.data()
+
+    if (_user === undefined){
+        return(/*html*/`
+            ${Background()}
+            ${Header()}
+            ${Spinner()}
+            ${Nav()}
+        `)
+    }
+
+    let exerciseCount = 1
 
     let _newPlan = {
         name: '',
