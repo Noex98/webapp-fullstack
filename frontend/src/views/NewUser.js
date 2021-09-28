@@ -2,32 +2,34 @@ import Header from "../components/Header.js"
 import Background from '../components/Background.js'
 import Link from "../utils/Link.js"
 import Redirect from "../utils/Redirect.js"
+import __ENV from "../env.js"
 
 export default function NewUser(){
 
-    // window.login = () => {
-    //     fetch(__ENV + '/api/login', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         credentials: 'include',
-    //         mode: 'cors',
-    //         secure: true,
-    //         body: JSON.stringify({
-    //             user: document.getElementById('user').value,
-    //             password: document.getElementById('password').value
-    //         }),
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if (data.login !== true){
-    //                 document.getElementById('errLog').innerText = data.err
-    //             } else {
-    //                 Redirect('/')
-    //             }
-    //         })
-    // }
+    window.createUser = () => {
+        fetch(__ENV + '/api/loginupdate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            mode: 'cors',
+            secure: true,
+            body: JSON.stringify({
+                username: document.getElementById('username').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+            }),
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.login !== true){
+                    document.getElementById('errLog').innerText = data.err
+                } else {
+                    Redirect('/login')
+                }
+            })
+    }
 
     window.showPasword = () => {
         let input = document.getElementById("password");
@@ -79,7 +81,7 @@ export default function NewUser(){
                     <label for="terms">I agree to the <strong>Terms</strong> and <strong>Privacy Policy</strong> </label>
                 </div>
                 
-                <button  class="container__signupBtn"onclick="signUp()">Get started</button>
+                <button  class="container__signupBtn" onclick="createUser()">Get started</button>
                 
                 <div id="errLog"></div>
 

@@ -2,9 +2,22 @@ import Header from "../components/Header.js"
 import Nav from "../components/Nav.js"
 import Background from "../components/Background.js"
 import { user } from "../Store.js";
+import Spinner from "../components/Spinner.js";
 
 export default function StartWorkout(){
+    
     let _user = user.data();
+
+    if (_user === undefined){
+        return(/*html*/`
+            ${Background()}
+            ${Header()}
+            ${Spinner()}
+            ${Nav()}
+        `)
+    }
+
+
     let _plans = _user.plans;
     let today = new Date();
     console.log(_plans);

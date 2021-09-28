@@ -1,20 +1,30 @@
 import Header from '../components/Header.js'
 import Nav from '../components/Nav.js'
 import Background from '../components/Background.js'
+import Spinner from '../components/Spinner.js'
 import { user } from '../Store.js' 
 
 export default function Home(){
 
     let _user = user.data();
+
+    if (_user === undefined){
+        return(/*html*/`
+            ${Background()}
+            ${Header()}
+            ${Spinner()}
+            ${Nav()}
+        `)
+    }
+
     let _plans = _user.plans;
 
-    console.log(_plans)
 
     let _days = []
     // Get todays date and day of the week
     let today = new Date();
     function getWeekDay(today){
-        let days = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
+        let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         return days[today.getDay()]
     }
 
@@ -55,25 +65,84 @@ export default function Home(){
     }
  
     // Append to DOM
-    function appendDays(_days){
+    function appendDays(){
         let html_template = ''
         for (let [i, day] of _days.entries()){
             html_template += /*html*/ `
 
-                <div class="nd ${i == 0 ? 'activeButton' : ''}" id="date${day.dateOfMonth}" onclick="changeStyle(this.id)">
-                    <div id="n">${day.dayOfWeek}</div><br> 
-                    <div id="d">${day.dateOfMonth}</div>
+                <div class="nd ${i == 0 ? 'activeButton' : ''}" id="date${day.dateOfMonth}" data-date="${day.dayOfWeek}" onclick="changeStyle(this.id)">
+                    <div class="n">${day.dayOfWeek.substring(0, 2)}</div><br> 
+                    <div class="d">${day.dateOfMonth}</div>
                 </div>`
+
         }
         return html_template
     }
    //Change style onclick
+    
+
     window.changeStyle = (clicked_id) => {
+
+        let clickedBtn = document.getElementById(clicked_id)
+
+        // Get list of all buttons
         let buttons = document.querySelectorAll(".nd");
+
+        // Remove active class from all buttons
         for (const button of buttons) {
            button.classList.remove("activeButton");
         }
-        document.getElementById(clicked_id).classList.add("activeButton")
+
+        // Add active class to the clicked element
+        clickedBtn.classList.add("activeButton")
+        
+        document.getElementById('workoutContainer').innerHTML = showPlan(clickedBtn.dataset.date.toLowerCase())
+    }
+    
+    function showPlan(day){
+
+        let plansShowed = _plans.filter(plan => plan.repeat.includes(day))
+
+        // No plans for the day
+        if (plansShowed.length == 0){
+            return (/*html*/ `
+                <div id="workoutContainer__header">
+                    <h3>No plans</h3>
+                </div>
+            `)
+            
+        // One plan for the day
+        } else if (plansShowed.length == 1){
+
+            let plan = plansShowed[0]
+
+            return (/*html*/ `
+                <div id="workoutContainer__header">
+                    <h3>Today's plan</h3>
+                    <h1>${plan.name}</h1>
+                </div>
+            `)
+
+        // More than 1 plan for the day
+        } else {
+
+            let html_template = ''
+
+            // html for each plan
+            for (const plan of plansShowed) {
+                html_template += /*html*/`
+                    <h1>${plan.name}</h1>
+                `
+            }
+
+            return (/*html*/ `
+            <div id="workoutContainer__header">
+                <h3>You have ${plansShowed.length} plans today</h3>
+                ${html_template}
+            </div>
+        `)
+        }
+
     }
    console.log(_days);
    
@@ -92,19 +161,24 @@ export default function Home(){
                 <img id="arrowleft" src="../media/images/icons/arrow_left.svg">
 
                 <div id="home__days">
-                    ${appendDays(_days)}
+                    ${appendDays()}
                 </div>
 
                 <img id="arrowright" src="../media/images/icons/arrow_right.svg">
             </div>
           
             <div id="workoutContainer">
+<<<<<<< HEAD
                 <div id="workoutContainer__header">
                     <h3>Today's plan</h3>
                
                 </div>
+=======
+                ${showPlan(day.dayOfWeek)}
+>>>>>>> 22a277a159673c520bb8c1317658f1e40ea4925a
             </div>
         </div>
+        
      
         ${Nav()}
     `)
