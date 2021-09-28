@@ -85,6 +85,11 @@
 
     .change__password {
         justify-content: left;
+        
+        a {
+            display: flex;
+            flex-direction: flex;
+        }
     }
 
     .notifications {

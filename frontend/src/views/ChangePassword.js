@@ -59,8 +59,8 @@ export default function ChangePassword(){
             <div>
                 <img src="../media/images/icons/password.svg" alt="icon" />
                 <div class="input__fields">
-                    <label for="password">Old Password: </label>
-                    <input placeholder="Password" type="tekst" name="password" id="password" />
+                    <label for="old-password">Old Password: </label>
+                    <input placeholder="Password" type="tekst" name="password" id="old-password"/>
                 </div>
             </div>
 

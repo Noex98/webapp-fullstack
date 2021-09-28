@@ -710,6 +710,16 @@ nav ul .nav__active .stroke {
           justify-content: left;
 }
 
+.profile__container .change__password a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: flex;
+          flex-direction: flex;
+}
+
 .profile__container .notifications {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
