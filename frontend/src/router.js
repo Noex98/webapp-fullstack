@@ -8,6 +8,7 @@ import Stats from './views/Stats.js'
 import StartWorkout from './views/StartWorkout.js'
 import Plans from './views/Plans.js'
 import ForgotPassword from './views/ForgotPassword.js'
+import ActiveWorkout from './views/ActiveWorkout.js'
 
 // Utils
 import ProtectRoute from './utils/ProtectRoute.js'
@@ -38,8 +39,12 @@ const routes = [
         view: Stats,
         auth: true
     }, {
-        path: '/startWorkout',
+        path: '/start-workout',
         view: StartWorkout,
+        auth: true
+    }, {
+        path: '/active-workout',
+        view: ActiveWorkout,
         auth: true
     }, {
         path: '/plans',

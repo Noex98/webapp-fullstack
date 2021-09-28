@@ -12,10 +12,10 @@ export default function Plans(){
 
     if (_user === undefined){
         return(/*html*/`
-            ${Background()}
+            ${Background({profileBtn: true})}
             ${Header()}
             ${Spinner()}
-            ${Nav()}
+            ${Nav('plans')}
         `)
     }
 
