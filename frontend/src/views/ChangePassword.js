@@ -1,10 +1,8 @@
 import Header from '../components/Header.js'
 import Nav from '../components/Nav.js'
 import Background from '../components/Background.js'
-import Redirect from '../utils/Redirect.js'
 import { user } from '../Store.js'
 import __ENV from '../env.js'
-import ReRender from '../utils/ReRender.js'
 import Spinner from '../components/Spinner.js'
 
 
@@ -21,21 +19,21 @@ export default function ChangePassword(){
         `)
     }
 
-    window.updateData = (updatedKey, updatedValue) => {
+    // window.updateData = (updatedKey, updatedValue) => {
 
-        fetch(__ENV + '/api/user', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                key: updatedKey,
-                value: updatedValue,
-            }),
-        })
-            .then(res => res.json())
-            .then(data => Rere)
-    }
+    //     fetch(__ENV + '/api/user', {
+    //         method: 'PUT',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //             key: updatedKey,
+    //             value: updatedValue,
+    //         }),
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => Rere)
+    // }
 
 
     window.showPasword = () => {

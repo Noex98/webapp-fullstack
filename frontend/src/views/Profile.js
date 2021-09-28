@@ -4,7 +4,6 @@ import Background from '../components/Background.js'
 import Redirect from '../utils/Redirect.js'
 import { user } from '../Store.js'
 import __ENV from '../env.js'
-import ReRender from '../utils/ReRender.js'
 import Spinner from '../components/Spinner.js'
 import Link from '../utils/Link.js'
 
