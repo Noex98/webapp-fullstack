@@ -14,7 +14,7 @@ export default function Home(){
     // Get todays date and day of the week
     let today = new Date();
     function getWeekDay(today){
-        let days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]
+        let days = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
         return days[today.getDay()]
     }
 
@@ -75,6 +75,9 @@ export default function Home(){
         }
         document.getElementById(clicked_id).classList.add("activeButton")
     }
+   console.log(_days);
+   
+    
 
     return (/*html*/ `
         ${Background()}
@@ -98,7 +101,7 @@ export default function Home(){
             <div id="workoutContainer">
                 <div id="workoutContainer__header">
                     <h3>Today's plan</h3>
-                    <h1>No Workouts</h1></div>
+               
                 </div>
             </div>
         </div>
@@ -106,4 +109,3 @@ export default function Home(){
         ${Nav()}
     `)
 }
-

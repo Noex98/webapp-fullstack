@@ -18,7 +18,7 @@ export default function StartWorkout(){
     let _plansToday = []
     let _plansNotToday = []
     
-    for (const plan of _plans) {
+    for (let plan of _plans) {
         if (plan.repeat.includes(getWeekDay(today))){
             _plansToday.push(plan)
         } else {
@@ -28,6 +28,7 @@ export default function StartWorkout(){
 
     console.log(_plansNotToday)
 
+    //append todays workout to DOM
     function returnWorkoutsToday(){
         if (_plansToday.length != 0){
             return (/*html*/`
@@ -39,13 +40,19 @@ export default function StartWorkout(){
             return ''
         }
     }
+
+    //append all workouts to DOM
     function returnWorkouts(){
-        for (const plans of _plansNotToday) {
-            return (/*html*/ `<h2>All workouts</h2>
+        let html_template = ''
+        for (let plans of _plansNotToday) {
+            html_template +=/*html*/ `
+
             <div class="workoutContainer"><h3>
-            ${plans.name}</h3></div>`)
+            ${plans.name}</h3></div>`
+          
             
         }
+        return html_template
     }
     
     return (/*html*/ `
@@ -53,6 +60,7 @@ export default function StartWorkout(){
         ${Header({profileBtn: true})}
             <h1>Choose your workout</h1>
             ${returnWorkoutsToday()}
+            <h2>All Workouts<h2>
             ${returnWorkouts()}
         ${Nav('startWorkout')}
     `)
