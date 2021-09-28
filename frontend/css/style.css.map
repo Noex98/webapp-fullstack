@@ -14,7 +14,8 @@
         "partials/views/_plans.scss",
         "partials/views/_profile.scss",
         "partials/views/_newUser.scss",
-        "partials/views/_startWorkout.scss"
+        "partials/views/_startWorkout.scss",
+        "partials/views/_changePassword.scss"
     ],
     "names": [],
     "file": "style.css"
