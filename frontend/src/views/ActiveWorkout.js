@@ -20,7 +20,7 @@ export default function ActiveWorkout(props){
 
     // Redirect if component doesn't have a plan to use
     if (!props || !props.planIndex){
-        Redirect('active-workout')
+        Redirect('start-workout')
     }
 
 

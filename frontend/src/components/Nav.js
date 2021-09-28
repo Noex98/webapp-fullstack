@@ -17,8 +17,8 @@ export default function Nav(active){
                     `)}
                 </li>
                 <li>
-                    ${Link('/startWorkout', /*html*/ `
-                        <div src="../media/images/icons/nav_workouts.svg"  ${active === 'start-workout' ? 'class="nav__active"' : ''}>
+                    ${Link('/start-workout', /*html*/ `
+                        <div src="../media/images/icons/nav_workouts.svg"  ${active === 'startWorkout' ? 'class="nav__active"' : ''}>
                             <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path class="fill" d="M0.125 31.4442C0.125 31.4442 2.16667 8.47542 8.29167 0.125L18.5 2.16667L16.4583 8.47542H12.375V23.0938H14.4167C18.5 16.8258 26.9525 14.5392 32.0567 16.8258C38.7942 19.9496 38.1817 29.3617 32.0567 33.5267C27.1567 36.875 12.375 39.7946 0.125 31.4442Z" fill="#66848A"/>
                             </svg>
