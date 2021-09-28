@@ -2,6 +2,7 @@ import Header from "../components/Header.js"
 import Nav from "../components/Nav.js"
 import Background from "../components/Background.js"
 import { user } from "../Store.js";
+import Link from "../utils/Link.js";
 import Spinner from "../components/Spinner.js";
 
 export default function StartWorkout(){
@@ -75,6 +76,9 @@ export default function StartWorkout(){
             ${returnWorkoutsToday()}
             <h2>All Workouts<h2>
             ${returnWorkouts()}
+            ${Link('/active-workout', /*html*/`
+                Knap til active-workout
+            `, 0)}
         ${Nav('startWorkout')}
     `)
 }
