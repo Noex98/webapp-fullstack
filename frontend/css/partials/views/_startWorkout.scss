@@ -9,13 +9,33 @@ h2{
     line-height: 21px;
     margin: 15px 0px;
 } 
+h4{
+   display: flex;
+   justify-content: flex-end;
+   color: #A4CDBF;
+}
     .workoutContainer{
-        display: flex;
-        align-items: center;
+       
         background: rgba(255, 255, 255, 0.2);
         border-radius: 10px;
         padding: 25px 25px 40px;
         margin: 10px 0px;
+       
+        .accordion{
+            display: none;
+        }
+        .activeAcc{
+            display: block;
+             tr{
+               display: flex;
+               justify-content: space-between;
+               th{
+                   flex: 2 1 auto;
+               }
+           }
+        
+        }
+     
         h3{
             font-family: Roboto;
             font-style: normal;
@@ -25,3 +45,4 @@ h2{
                 }
   
     }
+   

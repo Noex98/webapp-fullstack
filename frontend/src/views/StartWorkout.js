@@ -38,42 +38,89 @@ export default function StartWorkout(){
             _plansNotToday.push(plan)
         }
     }
-
-    console.log(_plansNotToday)
-
+    console.log(_plansNotToday[0].exercises.length);
     //append todays workout to DOM
     function returnWorkoutsToday(){
         if (_plansToday.length != 0){
             return (/*html*/`
             <h2>Scheduled for today</h2>
             <div class="workoutContainer"><h3>
-            ${_plansToday[0].name}</h3></div>
+            ${_plansToday[0].name}</h3>
+            
+            </div>
+            
             `)
         } else {
             return ''
         }
     }
 
+   
     //append all workouts to DOM
     function returnWorkouts(){
         let html_template = ''
         for (let plans of _plansNotToday) {
+            //give unique id's
+            var id = "id" + Math.random().toString(16).slice(2)
             html_template +=/*html*/ `
-
-            <div class="workoutContainer"><h3>
-            ${plans.name}</h3></div>`
-          
-            
+            <div class="workoutContainer" id="${id}" onclick="showAccordion(this.id)"><h3>
+            ${plans.name}</h3>
+            <div class="accordion">
+            <h4>${plans.exercises.length} exercises</h4>
+           <table>
+            <tr>
+            <th class="grow-item">exercise</th>
+            <th class="grow-item">set</th>
+            <th class="grow-item">rep</th>
+            <th class="grow-item">weight</th>
+            </tr>
+           
+           
+            `
+            //Loop through the exercises withing "plans" and append them to dom
+            for (const exercise of plans.exercises) {
+                html_template +=/*html*/`
+                <tr>
+                <td>${exercise.name}</td>
+                <td>${exercise.set}</td>
+                <td>${exercise.rep}</td>
+                <td>${exercise.weight}</td>
+                </tr>
+             `
+                
+            }
+            //Finish table and div tags that was started in the first loop through "plans"
+            html_template +=/*html*/
+            `  </table>
+            </div></div>`
         }
         return html_template
     }
-    
+  
+    window.showAccordion = (clicked_id) => {
+
+        let clickedBtn = document.getElementById(clicked_id)
+
+        // Get list of all buttons
+        let buttons = document.querySelectorAll(".workoutContainer");
+
+        // Remove active class from all buttons
+        for (const button of buttons) {
+           button.lastElementChild.classList.remove("activeAcc");
+        }
+
+        // Add active class to the clicked element
+        clickedBtn.lastElementChild.classList.add("activeAcc")
+        
+        }
+  
     return (/*html*/ `
         ${Background()}
         ${Header({profileBtn: true})}
             <h1>Choose your workout</h1>
             ${returnWorkoutsToday()}
-            <h2>All Workouts<h2>
+            <h2>All Workouts</h2>
+            
             ${returnWorkouts()}
         ${Nav('startWorkout')}
     `)
