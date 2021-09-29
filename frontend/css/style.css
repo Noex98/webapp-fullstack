@@ -457,6 +457,78 @@ nav ul .nav__active .stroke {
   padding: 20px 20px;
 }
 
+#view__home #workoutContainer table {
+  width: 100%;
+  border: 0;
+  border-collapse: collapse;
+}
+
+#view__home #workoutContainer tbody {
+  display: table;
+  width: 100%;
+}
+
+#view__home #workoutContainer th {
+  color: #A4CDBF;
+  padding: 10px 0px;
+  font-size: 13px;
+}
+
+#view__home td {
+  padding: 10px;
+  border: 1px solid #cfcccc;
+  border-left: none;
+  border-right: none;
+  font-size: 18px;
+}
+
+#view__home .start {
+  text-align: left;
+  padding-left: 0px;
+}
+
+#view__home .number {
+  text-align: center;
+}
+
+#view__home .rep {
+  border: 1px solid #cfcccc;
+  border-top: none;
+}
+
+#view__home .repnum {
+  border: 1px solid #cfcccc;
+}
+
+#view__home h3 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 42px;
+}
+
+#view__home button {
+  font-size: 20px;
+  margin-top: 50px;
+  padding: 15px 45px;
+  color: white;
+  background: #48B18B;
+  border-radius: 10px;
+  border: none;
+  -webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#view__home .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 #view__plans h2 {
   font-weight: bold;
   font-size: 24px;
@@ -975,6 +1047,7 @@ h4 {
   width: 100%;
   border: 0;
   border-collapse: collapse;
+  padding: 20px;
 }
 
 #workout_view .workoutContainer .activeAcc tbody {
@@ -1014,14 +1087,6 @@ h4 {
   border: 1px solid #cfcccc;
 }
 
-#workout_view .workoutContainer h3 {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 36px;
-  line-height: 42px;
-}
-
 #workout_view .workoutContainer button {
   font-size: 20px;
   margin-top: 50px;
@@ -1041,6 +1106,7 @@ h4 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  padding: 30px 0px;
 }
 
 .changePassword__container {

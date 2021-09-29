@@ -71,8 +71,8 @@
             border-bottom-right-radius: 0;
         }
     }
-  
 }
+
     #workoutContainer{
         width:100%;
         
@@ -82,6 +82,60 @@
 
         #workoutContainer__header{
             padding: 20px 20px;
+
         }
+        table{
+            width: 100%;
+            border: 0;
+            border-collapse: collapse;
+            }   
+            tbody{
+            display: table;
+            width:100%;
+        }
+            th{color:#A4CDBF;
+            padding:10px 0px;
+            font-size: 13px;}
+            }
+            td{
+            padding: 10px;    
+            border: 1px solid rgb(207, 204, 204);
+            border-left: none;
+            border-right: none;
+            font-size: 18px;}
+            .start{text-align: left;
+            padding-left: 0px;}
+            .number{text-align: center;
+            }
+            .rep{
+            border: 1px solid rgb(207, 204, 204);
+            border-top: none;
+            }
+            .repnum{
+                border: 1px solid  rgb(207, 204, 204);
+                
+            }
+            h3{
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 36px;
+                line-height: 42px;
+                    }
+            button{
+                font-size: 20px;
+                margin-top: 50px;
+                padding: 15px 45px;
+                color: white;
+                background: #48B18B;
+                border-radius: 10px;
+                border: none;
+                box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    
+            }
+            .buttons{
+                display: flex;
+                justify-content: space-between;
+            }
     }
-}
+

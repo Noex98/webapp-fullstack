@@ -39,7 +39,6 @@ export default function StartWorkout(){
             _plansNotToday.push(plan)
         }
     }
-    console.log(_plansNotToday[0].exercises.length);
     //append todays workout to DOM
     function returnWorkoutsToday(){
         //if there is more then 0 plans to day display them, else display nothing
@@ -174,7 +173,7 @@ export default function StartWorkout(){
             // Add active class to the clicked element
             clickedBtn.classList.add("activeBtn")
             clickedBtn.lastElementChild.classList.add("activeAcc")
-
+            
         }
     }
   
