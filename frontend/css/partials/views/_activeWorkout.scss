@@ -1,0 +1,138 @@
+#view__active-workout {
+    overflow-x: hidden;
+    margin: 0 -23px;
+
+    #active-workout__wrapper {
+        overflow-x: scroll;
+        overflow-y: visible;
+        white-space: nowrap;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        & {
+        -ms-overflow-style: none; 
+        scrollbar-width: none;  
+        }
+
+        .active-workout__exercise {
+            padding: 0 23px;
+            width:100%;
+            display: inline-block;
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
+            scroll-behavior: smooth;
+
+            .exercise__type {
+                font-weight: bold;
+                font-size: 14px;
+                color: #AAD4C5;
+            }
+            .exercise__nameDisplay {
+                font-size: 36px;
+                
+            }
+            .exercise__setCont {
+                text-align: center;
+                margin:24px 0;
+                padding:24px;
+                background: rgba(255, 255, 255, 0.17);
+                border-radius: 10px;
+
+                .set__setDisplay {
+                    font-weight: bold;
+                    font-size: 24px;
+
+                    i {
+                        font-style: normal;
+                        color: #48B18B;
+                    }
+                }
+
+                .setCont__set {
+                    display:none;
+                    flex-direction: column;
+
+                    .set__arrowCont {
+                        display:flex;
+                        justify-content: space-around;
+                        padding:24px;
+                        
+                        img {
+                            transition: 150ms;
+
+                            &:active {
+                                transform:scale(1.2)
+                            }
+                            &:hover {
+                                cursor: pointer;
+                            }
+                        }
+                    }
+
+                    .set__inputCont {
+                        font-size: 36px;
+                        background-color: #2C394B;
+                        border-radius: 10px;
+                        display:flex;
+                        justify-content: center;
+                        margin:24px;
+                        padding:17px 0;
+
+                        label {
+                            padding-left: 18px;
+                            flex:1;
+                            text-align: left;
+                            width:50%;
+                        }
+                        
+                        input {
+                            width:50%;
+                            flex:1;
+                            border:none;
+                            outline: none;
+                            background:none;
+                            text-align: right;
+                            color: #48B18B;
+                            font-size: 36px;
+                        }
+                    }
+                }
+            
+                .exercise__setCont--active {
+                    display:flex;
+                }
+
+            }
+        }
+    }
+
+    #active-workout__timerCont {
+        padding: 24px;
+        div {
+            padding-bottom:10px;
+            text-align: center;
+            font-size: 18px;
+        }
+        .timerCont__header {
+            color:#AAD4C5;
+        }
+    }
+
+    #active-workout__dotCont {
+        display:flex;
+        justify-content: center;
+        div {
+            margin: 4px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: rgba(72, 177, 139, 0.6);
+        }
+        .dotCont__dot--active {
+            background: #48B18B;
+        }
+    }
+}
