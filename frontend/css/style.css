@@ -936,25 +936,111 @@ h2 {
   margin: 15px 0px;
 }
 
-.workoutContainer {
+h4 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  color: #A4CDBF;
+  padding-bottom: 10px;
+}
+
+#workout_view .workoutContainer {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   padding: 25px 25px 40px;
   margin: 10px 0px;
 }
 
-.workoutContainer h3 {
+#workout_view .workoutContainer .workoutContainer__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#workout_view .workoutContainer .accordion {
+  display: none;
+}
+
+#workout_view .workoutContainer .activeAcc {
+  display: block;
+}
+
+#workout_view .workoutContainer .activeAcc table {
+  width: 100%;
+  border: 0;
+  border-collapse: collapse;
+}
+
+#workout_view .workoutContainer .activeAcc tbody {
+  display: table;
+  width: 100%;
+}
+
+#workout_view .workoutContainer .activeAcc th {
+  color: #A4CDBF;
+  padding: 10px 0px;
+  font-size: 13px;
+}
+
+#workout_view .workoutContainer td {
+  padding: 10px;
+  border: 1px solid #cfcccc;
+  border-left: none;
+  border-right: none;
+  font-size: 18px;
+}
+
+#workout_view .workoutContainer .start {
+  text-align: left;
+  padding-left: 0px;
+}
+
+#workout_view .workoutContainer .number {
+  text-align: center;
+}
+
+#workout_view .workoutContainer .rep {
+  border: 1px solid #cfcccc;
+  border-top: none;
+}
+
+#workout_view .workoutContainer .repnum {
+  border: 1px solid #cfcccc;
+}
+
+#workout_view .workoutContainer h3 {
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   font-size: 36px;
   line-height: 42px;
+}
+
+#workout_view .workoutContainer button {
+  font-size: 20px;
+  margin-top: 50px;
+  padding: 15px 45px;
+  color: white;
+  background: #48B18B;
+  border-radius: 10px;
+  border: none;
+  -webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#workout_view .workoutContainer .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .changePassword__container {

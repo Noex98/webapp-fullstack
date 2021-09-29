@@ -168,14 +168,7 @@ export default function Home(){
             </div>
           
             <div id="workoutContainer">
-<<<<<<< HEAD
-                <div id="workoutContainer__header">
-                    <h3>Today's plan</h3>
-               
-                </div>
-=======
                 ${showPlan(day.dayOfWeek)}
->>>>>>> 22a277a159673c520bb8c1317658f1e40ea4925a
             </div>
         </div>
         
