@@ -22,7 +22,9 @@ export default function Login(){
             .then(res => res.json())
             .then(data => {
                 if (data.login !== true){
-                    document.getElementById('errLog').innerText = data.err
+                    document.getElementById('errLog').innerHTML = /*html*/ `
+                        <div>${data.err}</div>
+                    `
                 } else {
                     Redirect('/')
                 }
@@ -73,10 +75,9 @@ export default function Login(){
                     <label for="remember">Remember me </label>
                 </div>
 
-                <button  class="container__loginBtn"onclick="login()">Login</button>
+                <button class="container__loginBtn"onclick="login()">Login</button>
                 
                 <div id="errLog"></div>
-                
 
                 ${Link('/forgot-password', /*html*/`
                     <div class="container__link">Forgot you password?</div>
