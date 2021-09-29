@@ -911,39 +911,48 @@ h4 {
   padding-bottom: 10px;
 }
 
-.workoutContainer {
+#workout_view .workoutContainer {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   padding: 25px 25px 40px;
   margin: 10px 0px;
 }
 
-.workoutContainer .accordion {
+#workout_view .workoutContainer .workoutContainer__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#workout_view .workoutContainer .accordion {
   display: none;
 }
 
-.workoutContainer .activeAcc {
+#workout_view .workoutContainer .activeAcc {
   display: block;
 }
 
-.workoutContainer .activeAcc table {
+#workout_view .workoutContainer .activeAcc table {
   width: 100%;
   border: 0;
   border-collapse: collapse;
 }
 
-.workoutContainer .activeAcc tbody {
+#workout_view .workoutContainer .activeAcc tbody {
   display: table;
   width: 100%;
 }
 
-.workoutContainer .activeAcc th {
+#workout_view .workoutContainer .activeAcc th {
   color: #A4CDBF;
   padding: 10px 0px;
   font-size: 13px;
 }
 
-.workoutContainer td {
+#workout_view .workoutContainer td {
   padding: 10px;
   border: 1px solid #cfcccc;
   border-left: none;
@@ -951,25 +960,25 @@ h4 {
   font-size: 18px;
 }
 
-.workoutContainer .start {
+#workout_view .workoutContainer .start {
   text-align: left;
   padding-left: 0px;
 }
 
-.workoutContainer .number {
+#workout_view .workoutContainer .number {
   text-align: center;
 }
 
-.workoutContainer .rep {
+#workout_view .workoutContainer .rep {
   border: 1px solid #cfcccc;
   border-top: none;
 }
 
-.workoutContainer .repnum {
+#workout_view .workoutContainer .repnum {
   border: 1px solid #cfcccc;
 }
 
-.workoutContainer h3 {
+#workout_view .workoutContainer h3 {
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
@@ -977,8 +986,7 @@ h4 {
   line-height: 42px;
 }
 
-<<<<<<< HEAD
-.workoutContainer button {
+#workout_view .workoutContainer button {
   font-size: 20px;
   margin-top: 50px;
   padding: 15px 45px;
@@ -990,14 +998,15 @@ h4 {
           box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.workoutContainer .buttons {
+#workout_view .workoutContainer .buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-=======
+}
+
 .changePassword__container {
   padding-top: 32px;
 }
@@ -1115,6 +1124,5 @@ h4 {
   height: 60px;
   border: none;
   margin-top: 30px;
->>>>>>> e82dc68cb6165aab3d3335c3cb91005cca720126
 }
 /*# sourceMappingURL=style.css.map */

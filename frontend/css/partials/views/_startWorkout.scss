@@ -15,13 +15,16 @@ h4{
    color: #A4CDBF;
    padding-bottom: 10px;
 }
+#workout_view{
     .workoutContainer{
-       
         background: rgba(255, 255, 255, 0.2);
         border-radius: 10px;
         padding: 25px 25px 40px;
         margin: 10px 0px;
-       
+        .workoutContainer__header{
+            display: flex;
+            justify-content: space-between;
+        }
         .accordion{
             display: none;
         }
@@ -82,4 +85,4 @@ h4{
             justify-content: space-between;
         }
     }
-   
+}

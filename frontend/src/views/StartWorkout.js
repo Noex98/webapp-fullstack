@@ -42,15 +42,60 @@ export default function StartWorkout(){
     console.log(_plansNotToday[0].exercises.length);
     //append todays workout to DOM
     function returnWorkoutsToday(){
+        //if there is more then 0 plans to day display them, else display nothing
         if (_plansToday.length != 0){
-            return (/*html*/`
+            let html_template = ""
+            html_template += /*html*/`
             <h2>Scheduled for today</h2>
-            <div class="workoutContainer"><h3>
-            ${_plansToday[0].name}</h3>
-            
+            `
+            //loop through plans today and display them
+            for (let plans of _plansToday) {
+                //Give workoutContainer unique ids
+                var id = "id" + Math.random().toString(16).slice(2)
+
+                //append to dom
+                html_template  += /*html*/
+                ` <div class="workoutContainer"  id="${id}" onclick="showAccordion(this.id)">
+                <div class="workoutContainer__header">
+                <h3>
+                ${plans.name}</h3>
+                <img src="../media/images/icons/arrow_down.svg">
+                </div>
+                <div class="accordion">
+                <h4>${plans.exercises.length} exercises</h4>
+               <table>
+                <tr>
+                <th class="start">exercise</th>
+                <th>set</th>
+                <th class="rep">rep</th>
+                <th>weight</th>
+                </tr>
+               
+               
+                `
+                //Loop through the exercises withing "plans" and append them to dom
+                for (const exercise of plans.exercises) {
+                    html_template +=/*html*/`
+                    <tr>
+                    <td class="start">${exercise.name}</td>
+                    <td class="number">${exercise.set}</td>
+                    <td class="number repnum">${exercise.rep}</td>
+                    <td class="number">${exercise.weight}</td>
+                    </tr>
+                   `
+                }
+                  //Finish table and div tags that was started in the first loop through "plans"
+            html_template +=/*html*/
+            `  </table>
+            <div class="buttons">
+            <button>Edit</button>
+            <button>Start</button>
             </div>
-            
-            `)
+            </div>
+            </div>`
+            }
+            return html_template
+          
         } else {
             return ''
         }
@@ -60,12 +105,16 @@ export default function StartWorkout(){
     //append all workouts to DOM
     function returnWorkouts(){
         let html_template = ''
-        for (let plans of _plansNotToday) {
+        for (let [index, plans] of _plansNotToday.entries()) {
             //give unique id's
             var id = "id" + Math.random().toString(16).slice(2)
             html_template +=/*html*/ `
-            <div class="workoutContainer" id="${id}" onclick="showAccordion(this.id)"><h3>
-            ${plans.name}</h3>
+            <div class="workoutContainer" id="${id}" onclick="showAccordion(this.id)">
+            <div class="workoutContainer__header">
+            <h3>
+            ${plans.name}</h3> 
+            <img src="../media/images/icons/arrow_down.svg">
+            </div>
             <div class="accordion">
             <h4>${plans.exercises.length} exercises</h4>
            <table>
@@ -88,18 +137,20 @@ export default function StartWorkout(){
                 <td class="number">${exercise.weight}</td>
                 </tr>
              `
-                
             }
             //Finish table and div tags that was started in the first loop through "plans"
             html_template +=/*html*/
             `  </table>
             <div class="buttons">
             <button>Edit</button>
-            <button>Start</button>
+            ${Link('/active-workout', /*html*/`
+                <button>Start</button>
+            `, index)}
             </div>
             </div>
             </div>`
         }
+       
         return html_template
     }
   
@@ -107,27 +158,36 @@ export default function StartWorkout(){
 
         let clickedBtn = document.getElementById(clicked_id)
 
+        let addBtn = clickedBtn.classList.contains('activeBtn') ? false : true;
+
         // Get list of all buttons
         let buttons = document.querySelectorAll(".workoutContainer");
 
         // Remove active class from all buttons
         for (const button of buttons) {
-           button.lastElementChild.classList.remove("activeAcc");
+            button.classList.remove("activeBtn")
+            button.lastElementChild.classList.remove("activeAcc");
         }
 
-        // Add active class to the clicked element
-        clickedBtn.lastElementChild.classList.add("activeAcc")
-        
+        if (addBtn) {
+
+            // Add active class to the clicked element
+            clickedBtn.classList.add("activeBtn")
+            clickedBtn.lastElementChild.classList.add("activeAcc")
+
         }
+    }
   
     return (/*html*/ `
         ${Background()}
         ${Header({profileBtn: true})}
+            <div id="workout_view">
             <h1>Choose your workout</h1>
             ${returnWorkoutsToday()}
             <h2>All Workouts</h2>
             
             ${returnWorkouts()}
+            </div>
             ${Link('/active-workout', /*html*/`
                 Knap til active-workout
             `, 0)}
