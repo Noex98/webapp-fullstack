@@ -24,7 +24,9 @@ export default function NewUser(){
             .then(res => res.json())
             .then(data => {
                 if (data.login !== true){
-                    document.getElementById('errLog').innerText = data.err
+                    document.getElementById('errLog').innerHTML = /*html*/ `
+                        <div>${data.err}</div>
+                    `
                 } else {
                     Redirect('/login')
                 }

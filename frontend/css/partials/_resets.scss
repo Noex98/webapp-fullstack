@@ -28,3 +28,30 @@ a {
 .logo {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+
+#errLog {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 8px;
+
+    div {
+        animation: error 2s ease-in forwards;
+    }
+
+    @keyframes error {
+        0% {
+            opacity: 1;
+        }
+    
+        50% {
+            opacity: 1;
+        }
+    
+        100% {
+            opacity: 0;
+        }
+    }
+}
+
