@@ -4,8 +4,8 @@ import Background from '../components/Background.js'
 import Redirect from '../utils/Redirect.js'
 import { user } from '../Store.js'
 import __ENV from '../env.js'
-import ReRender from '../utils/ReRender.js'
 import Spinner from '../components/Spinner.js'
+import Link from '../utils/Link.js'
 
 
 export default function Profile(){
@@ -99,9 +99,11 @@ export default function Profile(){
             </div>
 
             <h3>Security Settings</h3>
-            <div class="change__password" onclick="changePassword()">
+            <div class="change__password">
+                ${Link('/change-password', /*html*/  `
                     <img src="../media/images/icons/password.svg" alt="icon"/>
                     <p>Change password</p>
+                `)}
             </div>
 
             <h3>App Settings</h3>

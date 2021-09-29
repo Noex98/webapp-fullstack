@@ -8,6 +8,7 @@ import Stats from './views/Stats.js'
 import StartWorkout from './views/StartWorkout.js'
 import Plans from './views/Plans.js'
 import ForgotPassword from './views/ForgotPassword.js'
+import ChangePassword from './views/ChangePassword.js'
 import ActiveWorkout from './views/ActiveWorkout.js'
 
 // Utils
@@ -50,13 +51,17 @@ const routes = [
         path: '/plans',
         view: Plans,
         auth: true
+    }, {
+        path: '/change-password',
+        view: ChangePassword,
+        auth: true
     }
 ]
 
 let root = document.getElementById('root')
 
 // Render view in the DOM
-function render(){
+function render(data){
     let target = routes.find(element => element.path === window.location.pathname);
     
     if (target === undefined){
@@ -64,18 +69,18 @@ function render(){
     } else {
         if (target.auth){
             ProtectRoute()
-            root.innerHTML = target.view()
+            root.innerHTML = target.view(data)
         } else {
-            root.innerHTML = target.view()
+            root.innerHTML = target.view(data)
         }
     } 
     
 }
 
 // Global navigation function
-window.navigateTo = path => {
+window.navigateTo = (path, data) => {
     window.history.pushState(null, null, path)
-    render()
+    render(data)
 }
 
 // Navigating with history api

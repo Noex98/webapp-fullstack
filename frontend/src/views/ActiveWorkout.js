@@ -5,7 +5,7 @@ import Spinner from '../components/Spinner.js'
 import Redirect from '../utils/Redirect.js'
 import { user } from '../Store.js' 
 
-export default function ActiveWorkout(props){
+export default function ActiveWorkout(planIndex){
 
     let _user = user.data();
 
@@ -19,8 +19,10 @@ export default function ActiveWorkout(props){
     }
 
     // Redirect if component doesn't have a plan to use
-    if (!props || !props.planIndex){
-        Redirect('start-workout')
+    if (!planIndex){
+        if(planIndex !== 0){
+            Redirect('start-workout')
+        }
     }
 
 
