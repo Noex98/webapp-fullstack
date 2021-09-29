@@ -898,6 +898,7 @@ h4 {
       -ms-flex-pack: end;
           justify-content: flex-end;
   color: #A4CDBF;
+  padding-bottom: 10px;
 }
 
 .workoutContainer {
@@ -915,19 +916,47 @@ h4 {
   display: block;
 }
 
-.workoutContainer .activeAcc tr {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+.workoutContainer .activeAcc table {
+  width: 100%;
+  border: 0;
+  border-collapse: collapse;
 }
 
-.workoutContainer .activeAcc tr th {
-  -webkit-box-flex: 2;
-      -ms-flex: 2 1 auto;
-          flex: 2 1 auto;
+.workoutContainer .activeAcc tbody {
+  display: table;
+  width: 100%;
+}
+
+.workoutContainer .activeAcc th {
+  color: #A4CDBF;
+  padding: 10px 0px;
+  font-size: 13px;
+}
+
+.workoutContainer td {
+  padding: 10px;
+  border: 1px solid #cfcccc;
+  border-left: none;
+  border-right: none;
+  font-size: 18px;
+}
+
+.workoutContainer .start {
+  text-align: left;
+  padding-left: 0px;
+}
+
+.workoutContainer .number {
+  text-align: center;
+}
+
+.workoutContainer .rep {
+  border: 1px solid #cfcccc;
+  border-top: none;
+}
+
+.workoutContainer .repnum {
+  border: 1px solid #cfcccc;
 }
 
 .workoutContainer h3 {
@@ -936,5 +965,26 @@ h4 {
   font-weight: bold;
   font-size: 36px;
   line-height: 42px;
+}
+
+.workoutContainer button {
+  font-size: 20px;
+  margin-top: 50px;
+  padding: 15px 45px;
+  color: white;
+  background: #48B18B;
+  border-radius: 10px;
+  border: none;
+  -webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.workoutContainer .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 /*# sourceMappingURL=style.css.map */

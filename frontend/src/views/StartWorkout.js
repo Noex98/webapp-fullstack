@@ -69,10 +69,10 @@ export default function StartWorkout(){
             <h4>${plans.exercises.length} exercises</h4>
            <table>
             <tr>
-            <th class="grow-item">exercise</th>
-            <th class="grow-item">set</th>
-            <th class="grow-item">rep</th>
-            <th class="grow-item">weight</th>
+            <th class="start">exercise</th>
+            <th>set</th>
+            <th class="rep">rep</th>
+            <th>weight</th>
             </tr>
            
            
@@ -81,10 +81,10 @@ export default function StartWorkout(){
             for (const exercise of plans.exercises) {
                 html_template +=/*html*/`
                 <tr>
-                <td>${exercise.name}</td>
-                <td>${exercise.set}</td>
-                <td>${exercise.rep}</td>
-                <td>${exercise.weight}</td>
+                <td class="start">${exercise.name}</td>
+                <td class="number">${exercise.set}</td>
+                <td class="number repnum">${exercise.rep}</td>
+                <td class="number">${exercise.weight}</td>
                 </tr>
              `
                 
@@ -92,7 +92,12 @@ export default function StartWorkout(){
             //Finish table and div tags that was started in the first loop through "plans"
             html_template +=/*html*/
             `  </table>
-            </div></div>`
+            <div class="buttons">
+            <button>Edit</button>
+            <button>Start</button>
+            </div>
+            </div>
+            </div>`
         }
         return html_template
     }
