@@ -55,22 +55,7 @@
                     display:none;
                     flex-direction: column;
 
-                    .set__arrowCont {
-                        display:flex;
-                        justify-content: space-around;
-                        padding:24px;
-                        
-                        img {
-                            transition: 150ms;
-
-                            &:active {
-                                transform:scale(1.2)
-                            }
-                            &:hover {
-                                cursor: pointer;
-                            }
-                        }
-                    }
+                    
 
                     .set__inputCont {
                         font-size: 36px;
@@ -100,12 +85,35 @@
                         }
                     }
                 }
+
+                .set__arrowCont, .pause__arrowCont {
+                    display:flex;
+                    justify-content: space-around;
+                    padding:24px;
+                    
+                    img {
+                        transition: 150ms;
+
+                        &:active {
+                            transform:scale(1.2)
+                        }
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
             
-                .exercise__setCont--active {
+                .setCont__pause {
+                    display: none;
+                }
+
+                .--activeDisplay {
                     display:flex;
                 }
 
+
             }
+            
         }
     }
 

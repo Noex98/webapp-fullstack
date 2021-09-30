@@ -1300,29 +1300,6 @@ h4 {
           flex-direction: column;
 }
 
-#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .setCont__set .set__arrowCont {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  padding: 24px;
-}
-
-#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .setCont__set .set__arrowCont img {
-  -webkit-transition: 150ms;
-  transition: 150ms;
-}
-
-#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .setCont__set .set__arrowCont img:active {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-}
-
-#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .setCont__set .set__arrowCont img:hover {
-  cursor: pointer;
-}
-
 #view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .setCont__set .set__inputCont {
   font-size: 36px;
   background-color: #2C394B;
@@ -1359,7 +1336,34 @@ h4 {
   font-size: 36px;
 }
 
-#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .exercise__setCont--active {
+#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .set__arrowCont, #view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .pause__arrowCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 24px;
+}
+
+#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .set__arrowCont img, #view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .pause__arrowCont img {
+  -webkit-transition: 150ms;
+  transition: 150ms;
+}
+
+#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .set__arrowCont img:active, #view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .pause__arrowCont img:active {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .set__arrowCont img:hover, #view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .pause__arrowCont img:hover {
+  cursor: pointer;
+}
+
+#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .setCont__pause {
+  display: none;
+}
+
+#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .--activeDisplay {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
