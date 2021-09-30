@@ -1022,7 +1022,7 @@ h4 {
 #workout_view .workoutContainer {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
-  padding: 25px 25px 40px;
+  padding: 25px 25px 25px;
   margin: 10px 0px;
 }
 
@@ -1089,7 +1089,6 @@ h4 {
 
 #workout_view .workoutContainer button {
   font-size: 20px;
-  margin-top: 50px;
   padding: 15px 45px;
   color: white;
   background: #48B18B;
@@ -1106,7 +1105,7 @@ h4 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 30px 0px;
+  padding-top: 25px;
 }
 
 .changePassword__container {
