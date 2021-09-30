@@ -4,6 +4,8 @@
     font-weight: bold;
     font-size: 24px;
     line-height: 28px;
+    margin: 0;
+    padding-top: 10px;
     }
 
     h2 {
@@ -11,11 +13,10 @@
     font-weight: normal;
     font-size: 18px;
     line-height: 21px;
-        
     }
 
     #weekMonth {
-        margin-top: 30px;
+        margin-top: 20px;
         display: flex;
         justify-content: flex-end;
     }
@@ -73,7 +74,7 @@
         border-bottom-right-radius: 10px;
 
         #workoutContainer__header {
-            padding: 20px 20px;
+            padding: 20px 15px 20px;
         }
 
         table {
@@ -91,19 +92,20 @@
             color:#A4CDBF;
             padding: 10px;
             font-size: 13px;
+            border: none;
         }
     }
 
     td {
         padding: 10px;    
         border: 1px solid rgb(207, 204, 204);
-        border-left: none;
         border-right: none;
         font-size: 16px;
     }
             .start {
                 text-align: left;
                 padding-left: 10px;
+                border-left: none;
             }
 
             .number {
@@ -141,8 +143,8 @@
             .buttons {
                 display: flex;
                 justify-content: space-around;
-                margin-top: 50px;
-                padding-bottom: 10px;
+                margin: 25px 0;
+                padding-bottom: 25px;
             }
 }
 
