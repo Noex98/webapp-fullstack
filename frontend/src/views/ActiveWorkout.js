@@ -38,7 +38,12 @@ export default function ActiveWorkout(planIndex){
     }
 
     function pauseTimer(id){
-        console.log(id)
+        let timerCont = document.getElementById(id)
+        let timerDisplay = timerCont.querySelector('.display__number')
+        let time = 60
+        console.log(timerCont)
+
+        //for (let i = 0; )
     }
 
     function returnExercises(){
@@ -81,6 +86,7 @@ export default function ActiveWorkout(planIndex){
                 `
                 
                 set_template += /*html*/`
+                    <!-- Set -->
                     <div class="setCont__set ${i === 0 ? '--activeDisplay' : ''}">
                         <div class="set__setDisplay">Set <i>${i + 1}</i> of <i>${exercise.set}</i></div>
                         <div class="set__inputCont">

@@ -1229,11 +1229,13 @@ h4 {
 }
 
 #view__active-workout {
-  overflow-x: hidden;
   margin: 0 -23px;
 }
 
 #view__active-workout #active-workout__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   overflow-x: scroll;
   overflow-y: visible;
   white-space: nowrap;
@@ -1253,8 +1255,9 @@ h4 {
 
 #view__active-workout #active-workout__wrapper .active-workout__exercise {
   padding: 0 23px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   width: 100%;
-  display: inline-block;
   scroll-snap-align: center;
   scroll-snap-stop: always;
   scroll-behavior: smooth;
