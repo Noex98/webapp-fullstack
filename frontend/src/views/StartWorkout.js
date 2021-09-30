@@ -179,7 +179,7 @@ export default function StartWorkout(){
   
     return (/*html*/ `
         ${Background()}
-        ${Header({profileBtn: true})}
+        ${Header({profileBtn: true, backBtn: true})}
             <div id="workout_view">
             <h1>Choose your workout</h1>
             ${returnWorkoutsToday()}
