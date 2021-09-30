@@ -24,7 +24,7 @@ export default function Home(){
     // Get todays date and day of the week
     let today = new Date();
     function getWeekDay(today){
-        let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
         return days[today.getDay()]
     }
 
@@ -55,7 +55,7 @@ export default function Home(){
     _days.push(day)
 
     // Add dates ahead of today and add to end of _days array
-    for (let i = 0; i < 14; i++){
+    for (let i = 0; i < 10; i++){
     today.setDate(today.getDate()+1)
     let dayAhead = {
         dayOfWeek: getWeekDay(today),
@@ -113,15 +113,38 @@ export default function Home(){
             
         // One plan for the day
         } else if (plansShowed.length == 1){
-
-            let plan = plansShowed[0]
-
-            return (/*html*/ `
-                <div id="workoutContainer__header">
+            let html_template ='';
+            let plan = plansShowed[0];
+                html_template += /*html*/
+                `<div id="workoutContainer__header">
                     <h3>Today's plan</h3>
                     <h1>${plan.name}</h1>
                 </div>
-            `)
+                <table>
+                <tr>
+                <th class="start">exercise</th>
+                <th>set</th>
+                <th class="rep">rep</th>
+                <th>weight</th>
+                </tr>
+                `
+
+                for (let exercise of plan.exercises) {
+                    html_template +=/*html*/`
+                    <tr>
+                    <td class="start">${exercise.name}</td>
+                    <td class="number">${exercise.set}</td>
+                    <td class="number repnum">${exercise.rep}</td>
+                    <td class="number">${exercise.weight}</td>
+                    </tr>
+                   `
+                }
+                html_template +=/*html*/
+            `  </table>
+            <div class="buttons">
+            <button>Edit</button>
+            <button>Start</button>`
+            return html_template
 
         // More than 1 plan for the day
         } else {
