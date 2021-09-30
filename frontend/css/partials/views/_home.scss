@@ -1,5 +1,4 @@
 #view__home {
-  
     h1 {
     font-style: normal;
     font-weight: bold;
@@ -15,26 +14,26 @@
         
     }
 
-    #weekMonth{
+    #weekMonth {
         margin-top: 30px;
         display: flex;
         justify-content: flex-end;
     }
-    div{
+    div {
         position: relative;
     
-        img{
+        img {
             width: 13px;
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             fill: #7c9aa0;
         }
-        #arrowleft{
+        #arrowleft {
             left: -18px;
         
         }
-        #arrowright{
+        #arrowright {
             right: -18px;
         }
   
@@ -45,7 +44,7 @@
         overflow-y: visible;
         white-space: nowrap;
    
-        .nd{
+        .nd {
             display: inline-block;
             background: rgba(102, 132, 138, 0.56);
             border-radius: 10px;
@@ -56,7 +55,7 @@
            
             
         }
-        .activeButton{
+        .activeButton {
             background: rgba(255, 255, 255, 0.17);
             margin-bottom:0;
             padding-bottom:30px;
@@ -73,9 +72,8 @@
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
 
-        #workoutContainer__header{
+        #workoutContainer__header {
             padding: 20px 20px;
-
         }
 
         table {
@@ -91,20 +89,21 @@
 
         th {
             color:#A4CDBF;
-            padding: 10px 10px;
+            padding: 10px;
             font-size: 13px;
         }
     }
+
     td {
         padding: 10px;    
         border: 1px solid rgb(207, 204, 204);
         border-left: none;
         border-right: none;
-        font-size: 18px;
+        font-size: 16px;
     }
             .start {
                 text-align: left;
-                padding-left: 0px;
+                padding-left: 10px;
             }
 
             .number {
