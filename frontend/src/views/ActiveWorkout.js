@@ -58,6 +58,19 @@ export default function ActiveWorkout(planIndex){
                 let pause = /*html*/`
                     <div class="setCont__pause">
                         <div class="pause__display" id="pause__display-${index.toString() + i.toString()}">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 757.58 529.86">
+                                <defs>
+                                    <style>.cls-1{fill:#fff;}.cls-2{fill:#aad4c5;}</style>
+                                </defs>
+                                <g id="Lag_2" data-name="Lag 2">
+                                    <g id="timer">
+                                        <path id="white" class="cls-1" d="M378.79,0C169.59,0,0,169.59,0,378.79A377.52,377.52,0,0,0,31.33,529.86H58.79q-3.13-6.61-6-13.37a353.89,353.89,0,0,1,652-275.41,355.07,355.07,0,0,1,0,275.41q-2.87,6.76-6,13.37h27.45a377.52,377.52,0,0,0,31.33-151.07C757.58,169.59,588,0,378.79,0Z"/>
+                                        <path id="green" class="cls-2" d="M378.79,0C169.59,0,0,169.59,0,378.79A377.52,377.52,0,0,0,31.33,529.86H58.79q-3.13-6.61-6-13.37a353.89,353.89,0,0,1,652-275.41,355.07,355.07,0,0,1,0,275.41q-2.87,6.76-6,13.37h27.45a377.52,377.52,0,0,0,31.33-151.07C757.58,169.59,588,0,378.79,0Z"/>
+                                    </g>
+                                </g>
+                            </svg>
+
                             <div class="display__number">01:00</div>
                         </div>
                         <div class="pause__arrowCont">
