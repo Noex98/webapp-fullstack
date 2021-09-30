@@ -48,6 +48,7 @@ export default function ActiveWorkout(planIndex){
         if (!timers[id]){
             timers[id] = {
                 container: document.getElementById(id),
+                initialTime: 60,
                 time: 60,
                 start: setInterval(() => {
                     if (timers[id].time === 0){
@@ -63,10 +64,11 @@ export default function ActiveWorkout(planIndex){
                 }
             }
         }
-        
-        console.log(timers[id].container)
     }
 
+
+
+    // Returns the main content on the page
     function returnExercises(){
 
         let html_template = ''
@@ -74,13 +76,13 @@ export default function ActiveWorkout(planIndex){
         // Loop through all exercises
         for (const [index, exercise] of _exercises.entries()) {
 
-
-
+            // Template for each set
             let set_template = ''
 
             // Loop though all sets for each exercise
             for (let i = 0; i < parseInt(exercise.set) ;i++) {
 
+                // Returns the pause appended after each set
                 let pause = /*html*/`
                     <div class="setCont__pause">
                         <div class="pause__display" id="pause__display-${index.toString() + i.toString()}">
@@ -108,6 +110,7 @@ export default function ActiveWorkout(planIndex){
                     </div>
                 `
                 
+                // Returns each set
                 set_template += /*html*/`
                     <!-- Set -->
                     <div class="setCont__set ${i === 0 ? '--activeDisplay' : ''}">
@@ -132,7 +135,7 @@ export default function ActiveWorkout(planIndex){
                 `
             }
 
-
+            // Returns each exercise, with sets
             html_template += /*html*/`
                 <div class="active-workout__exercise">
                     <div class="exercise__type">exercise</div>
@@ -176,7 +179,7 @@ export default function ActiveWorkout(planIndex){
                 }
             }
         } else { // Arrow forwards
-            if (activeDisplay.nextElementSibling === null){ // No next set to go to
+            if (activeDisplay.nextElementSibling === null){ // No next set to go to, so we scroll
                 wrapper.scroll(wrapper.scrollLeft + activeDisplay.offsetWidth, 0)
             } else { // go to next set
                 activeDisplay.classList.remove('--activeDisplay')

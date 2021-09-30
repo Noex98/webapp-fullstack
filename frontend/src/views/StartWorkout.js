@@ -32,7 +32,8 @@ export default function StartWorkout(){
     let _plansToday = []
     let _plansNotToday = []
     
-    for (let plan of _plans) {
+    for (let [index, plan] of _plans.entries()) {
+        plan.index = index
         if (plan.repeat.includes(getWeekDay(today))){
             _plansToday.push(plan)
         } else {
@@ -56,20 +57,20 @@ export default function StartWorkout(){
                 html_template  += /*html*/
                 ` <div class="workoutContainer"  id="${id}" onclick="showAccordion(this.id)">
                 <div class="workoutContainer__header">
-                <h3>
-                ${plans.name}</h3>
-                <img src="../media/images/icons/arrow_down.svg">
+                    <h3>
+                    ${plans.name}</h3>
+                    <img src="../media/images/icons/arrow_down.svg">
                 </div>
                 <div class="accordion">
-                <h4>${plans.exercises.length} exercises</h4>
-               <table>
-                <tr>
-                <th class="start">exercise</th>
-                <th>set</th>
-                <th class="rep">rep</th>
-                <th>weight</th>
-                </tr>
-               
+                    <h4>${plans.exercises.length} exercises</h4>
+                    <table>
+                        <tr>
+                        <th class="start">exercise</th>
+                        <th>set</th>
+                        <th class="rep">rep</th>
+                        <th>weight</th>
+                    </tr>
+                </div>
                
                 `
                 //Loop through the exercises withing "plans" and append them to dom
@@ -88,7 +89,9 @@ export default function StartWorkout(){
             `  </table>
             <div class="buttons">
             <button>Edit</button>
-            <button>Start</button>
+            <button>
+                ${Link('/active-workout', 'Start', plans.index)}
+            </button>
             </div>
             </div>
             </div>`

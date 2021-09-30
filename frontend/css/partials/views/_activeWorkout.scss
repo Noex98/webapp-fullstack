@@ -107,6 +107,7 @@
 
                     .pause__display {
                         position: relative;
+                        
                         .display__timer {
                             position:absolute;
                             top: 65%;
@@ -127,13 +128,17 @@
                                 font-weight: bold;
                             }
                         }
+                        .svg {
+                            #green {
+                                transition: 1s;
+                            }
+                        }
                     }
                 }
 
                 .--activeDisplay {
                     display:flex;
                 }
-
 
             }
             

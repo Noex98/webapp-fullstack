@@ -1398,6 +1398,11 @@ h4 {
   font-weight: bold;
 }
 
+#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .setCont__pause .pause__display .svg #green {
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
 #view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .--activeDisplay {
   display: -webkit-box;
   display: -ms-flexbox;
