@@ -551,7 +551,7 @@ nav ul .nav__active .stroke {
 
 #view__plans #plans__inputCont #exerciseCount {
   font-size: 14px;
-  color: #E2E1E1;
+  color: #e2e1e1;
   text-align: end;
   padding: 14px;
 }
@@ -571,7 +571,7 @@ nav ul .nav__active .stroke {
 #view__plans #plans__inputCont table th {
   padding: 6px;
   font-size: 11px;
-  color: #A4CDBF;
+  color: #a4cdbf;
   font-weight: normal;
   text-align: center;
 }
@@ -582,13 +582,17 @@ nav ul .nav__active .stroke {
 
 #view__plans #plans__inputCont table td {
   padding: 10px;
-  border-top: 1px solid #B4B3B3;
-  border-bottom: 1px solid #B4B3B3;
+  border-top: 1px solid #b4b3b3;
+  border-bottom: 1px solid #b4b3b3;
 }
 
 #view__plans #plans__inputCont table td:nth-child(3n) {
-  border-left: 1px solid #B4B3B3;
-  border-right: 1px solid #B4B3B3;
+  border-left: 1px solid #b4b3b3;
+  border-right: 1px solid #b4b3b3;
+}
+
+#view__plans #plans__inputCont table td:nth-child(2n) {
+  border-left: 1px solid #b4b3b3;
 }
 
 #view__plans #plans__inputCont table td .td__numberInput {
@@ -622,7 +626,7 @@ nav ul .nav__active .stroke {
 #view__plans #plans__inputContSet .inputContSet__repeat .repeat__title {
   padding-left: 19px;
   font-size: 14px;
-  color: #A4CDBF;
+  color: #a4cdbf;
 }
 
 #view__plans #plans__inputContSet .inputContSet__repeat .repeat__btnCont {
@@ -634,9 +638,9 @@ nav ul .nav__active .stroke {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  color: #E2E1E1;
-  border-top: 1px solid #B4B3B3;
-  border-bottom: 1px solid #B4B3B3;
+  color: #e2e1e1;
+  border-top: 1px solid #b4b3b3;
+  border-bottom: 1px solid #b4b3b3;
 }
 
 #view__plans #plans__inputContSet .inputContSet__repeat .repeat__btnCont div {
@@ -661,13 +665,13 @@ nav ul .nav__active .stroke {
 
 #view__plans #plans__inputContSet .inputContSet__repeat .repeat__btnCont .selected {
   color: white;
-  background: #48AE8A;
+  background: #48ae8a;
   -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #view__plans .finishBtn {
-  background: #48AE8A;
+  background: #48ae8a;
   -webkit-box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
@@ -1292,29 +1296,6 @@ h4 {
           flex-direction: column;
 }
 
-#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .setCont__set .set__arrowCont {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  padding: 24px;
-}
-
-#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .setCont__set .set__arrowCont img {
-  -webkit-transition: 150ms;
-  transition: 150ms;
-}
-
-#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .setCont__set .set__arrowCont img:active {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-}
-
-#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .setCont__set .set__arrowCont img:hover {
-  cursor: pointer;
-}
-
 #view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .setCont__set .set__inputCont {
   font-size: 36px;
   background-color: #2C394B;
@@ -1351,7 +1332,34 @@ h4 {
   font-size: 36px;
 }
 
-#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .exercise__setCont--active {
+#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .set__arrowCont, #view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .pause__arrowCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 24px;
+}
+
+#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .set__arrowCont img, #view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .pause__arrowCont img {
+  -webkit-transition: 150ms;
+  transition: 150ms;
+}
+
+#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .set__arrowCont img:active, #view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .pause__arrowCont img:active {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .set__arrowCont img:hover, #view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .pause__arrowCont img:hover {
+  cursor: pointer;
+}
+
+#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .setCont__pause {
+  display: none;
+}
+
+#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .--activeDisplay {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

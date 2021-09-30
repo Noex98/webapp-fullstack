@@ -29,9 +29,7 @@ export default function ActiveWorkout(planIndex){
 
     console.log(_exercises);
 
-    let pause = /*html*/`
-
-    `
+    
 
     function returnExercises(){
 
@@ -40,13 +38,15 @@ export default function ActiveWorkout(planIndex){
         // Loop through all exercises
         for (const [index, exercise] of _exercises.entries()) {
 
+
+
             let set_template = ''
 
             // Loop though all sets for each exercise
             for (let i = 0; i < parseInt(exercise.set) ;i++) {
                 
                 set_template += /*html*/`
-                    <div class="setCont__set ${i === 0 ? 'exercise__setCont--active' : ''}">
+                    <div class="setCont__set ${i === 0 ? '--activeDisplay' : ''}">
                         <div class="set__setDisplay">Set <i>${i + 1}</i> of <i>${exercise.set}</i></div>
                         <div class="set__inputCont">
                             <input id="${'repInput-' + index.toString() + i.toString()}" type="number" placeholder="${exercise.rep}"/>
@@ -58,6 +58,14 @@ export default function ActiveWorkout(planIndex){
                         </div>
 
                         <div for="" class="set__arrowCont">
+                            <img onclick="nextSet(${index}, 0)" src="../media/images/icons/previous.svg" alt="arrow" />
+                            <img onclick="nextSet(${index}, 1)" src="../media/images/icons/next.svg" alt="arrow" />
+                        </div>
+                    </div>
+
+                    <!-- Pause -->
+                    <div class="setCont__pause">
+                        <div for="" class="pause__arrowCont">
                             <img onclick="nextSet(${index}, 0)" src="../media/images/icons/previous.svg" alt="arrow" />
                             <img onclick="nextSet(${index}, 1)" src="../media/images/icons/next.svg" alt="arrow" />
                         </div>
@@ -91,25 +99,27 @@ export default function ActiveWorkout(planIndex){
     }
 
     window.nextSet = (exerciseIndex, direction) => {
+        let wrapper = document.getElementById('active-workout__wrapper')
         let exerciseCont = document.getElementById('active-workout__wrapper').children[exerciseIndex]
-        let activeDisplay = exerciseCont.querySelector('.exercise__setCont--active')
+        let activeDisplay = exerciseCont.querySelector('.--activeDisplay')
         
-        if (direction == 0){    //Arrow backwards
+        if (direction == 0){ // Arrow backwards
             if (activeDisplay.previousElementSibling === null){ // No previous set to go to
-
+                if (exerciseIndex !== 0){ // No arrow back at the first set of the first exercise
+                    wrapper.scroll(wrapper.scrollLeft - activeDisplay.offsetWidth, 0)
+                }
             } else { // go back to last set
-
+                activeDisplay.classList.remove('--activeDisplay')
+                activeDisplay.previousElementSibling.classList.add('--activeDisplay')
             }
-        } else {                // Arrow forwards
+        } else { // Arrow forwards
             if (activeDisplay.nextElementSibling === null){ // No next set to go to
-
+                wrapper.scroll(wrapper.scrollLeft + activeDisplay.offsetWidth, 0)
             } else { // go to next set
-
+                activeDisplay.classList.remove('--activeDisplay')
+                activeDisplay.nextElementSibling.classList.add('--activeDisplay')
             }
         }
-        
-        console.log(activeDisplay.previousElementSibling)
-        console.log(activeDisplay.nextElementSibling)
     }
 
 
