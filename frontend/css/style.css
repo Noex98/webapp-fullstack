@@ -373,6 +373,8 @@ nav ul .nav__active .stroke {
   font-weight: bold;
   font-size: 24px;
   line-height: 28px;
+  margin: 0;
+  padding-top: 10px;
 }
 
 #view__home h2 {
@@ -383,7 +385,7 @@ nav ul .nav__active .stroke {
 }
 
 #view__home #weekMonth {
-  margin-top: 30px;
+  margin-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -445,7 +447,7 @@ nav ul .nav__active .stroke {
 }
 
 #view__home #workoutContainer #workoutContainer__header {
-  padding: 20px 20px;
+  padding: 20px 15px 20px;
 }
 
 #view__home #workoutContainer table {
@@ -463,12 +465,12 @@ nav ul .nav__active .stroke {
   color: #A4CDBF;
   padding: 10px;
   font-size: 13px;
+  border: none;
 }
 
 #view__home td {
   padding: 10px;
   border: 1px solid #cfcccc;
-  border-left: none;
   border-right: none;
   font-size: 16px;
 }
@@ -476,6 +478,7 @@ nav ul .nav__active .stroke {
 #view__home .start {
   text-align: left;
   padding-left: 10px;
+  border-left: none;
 }
 
 #view__home .number {
@@ -517,8 +520,8 @@ nav ul .nav__active .stroke {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  margin-top: 50px;
-  padding-bottom: 10px;
+  margin: 25px 0;
+  padding-bottom: 25px;
 }
 
 #view__plans h2 {
@@ -1015,14 +1018,15 @@ h4 {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  color: #A4CDBF;
-  padding-bottom: 10px;
+  color: white;
+  padding: 10px 10px 0 0;
+  font-size: 12px;
 }
 
 #workout_view .workoutContainer {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
-  padding: 25px 25px 25px;
+  padding: 25px 0px 25px;
   margin: 10px 0px;
 }
 
@@ -1033,6 +1037,7 @@ h4 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin: 0 15px 5px;
 }
 
 #workout_view .workoutContainer .accordion {
@@ -1057,8 +1062,9 @@ h4 {
 
 #workout_view .workoutContainer .activeAcc th {
   color: #A4CDBF;
-  padding: 10px 0px;
+  padding: 10px;
   font-size: 13px;
+  border-right: none;
 }
 
 #workout_view .workoutContainer td {
@@ -1071,7 +1077,8 @@ h4 {
 
 #workout_view .workoutContainer .start {
   text-align: left;
-  padding-left: 0px;
+  padding-left: 10px;
+  border-right: 1px solid #cfcccc;
 }
 
 #workout_view .workoutContainer .number {
@@ -1079,7 +1086,6 @@ h4 {
 }
 
 #workout_view .workoutContainer .rep {
-  border: 1px solid #cfcccc;
   border-top: none;
 }
 
@@ -1102,9 +1108,8 @@ h4 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   padding-top: 25px;
 }
 

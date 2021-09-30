@@ -18,20 +18,22 @@ h3 {
 h4 {
    display: flex;
    justify-content: flex-end;
-   color: #A4CDBF;
-   padding-bottom: 10px;
+   color: white;
+   padding: 10px 10px 0 0;
+   font-size: 12px;
 }
 
 #workout_view{
     .workoutContainer{
         background: rgba(255, 255, 255, 0.2);
         border-radius: 10px;
-        padding: 25px 25px 25px;
+        padding: 25px 0px 25px;
         margin: 10px 0px;
 
         .workoutContainer__header{
             display: flex;
             justify-content: space-between;
+            margin: 0 15px 5px;
         }
       
         .accordion{
@@ -55,8 +57,9 @@ h4 {
 
             th {
             color:#A4CDBF;
-            padding:10px 0px;
+            padding: 10px;
             font-size: 13px;
+            border-right: none;
             }
         }
 
@@ -70,7 +73,8 @@ h4 {
 
         .start {
             text-align: left;
-            padding-left: 0px;
+            padding-left: 10px;
+            border-right: 1px solid rgb(207, 204, 204);
         }
 
         .number {
@@ -78,7 +82,6 @@ h4 {
         }
 
         .rep {
-            border: 1px solid rgb(207, 204, 204);
             border-top: none;
         }
 
@@ -99,7 +102,7 @@ h4 {
         }
         .buttons{
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             padding-top: 25px;
         }
     }
