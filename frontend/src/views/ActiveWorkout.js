@@ -27,9 +27,19 @@ export default function ActiveWorkout(planIndex){
 
     let _exercises = _user.plans[planIndex].exercises
 
-    console.log(_exercises);
+    function workoutTimer(){
+        let display = document.querySelector('#active-workout__timerCont .timerCont__display')
+        let time = 0
 
-    
+        setTimeout(() => {
+            time += 1
+            display.innerText = time
+        }, 1000)
+    }
+
+    function pauseTimer(id){
+        console.log(id)
+    }
 
     function returnExercises(){
 
@@ -44,6 +54,18 @@ export default function ActiveWorkout(planIndex){
 
             // Loop though all sets for each exercise
             for (let i = 0; i < parseInt(exercise.set) ;i++) {
+
+                let pause = /*html*/`
+                    <div class="setCont__pause">
+                        <div class="pause__display" id="pause__display-${index.toString() + i.toString()}">
+                            <div class="display__number">01:00</div>
+                        </div>
+                        <div class="pause__arrowCont">
+                            <img onclick="nextSet(${index}, 0)" src="../media/images/icons/previous.svg" alt="arrow" />
+                            <img onclick="nextSet(${index}, 1)" src="../media/images/icons/next.svg" alt="arrow" />
+                        </div>
+                    </div>
+                `
                 
                 set_template += /*html*/`
                     <div class="setCont__set ${i === 0 ? '--activeDisplay' : ''}">
@@ -64,12 +86,7 @@ export default function ActiveWorkout(planIndex){
                     </div>
 
                     <!-- Pause -->
-                    <div class="setCont__pause">
-                        <div for="" class="pause__arrowCont">
-                            <img onclick="nextSet(${index}, 0)" src="../media/images/icons/previous.svg" alt="arrow" />
-                            <img onclick="nextSet(${index}, 1)" src="../media/images/icons/next.svg" alt="arrow" />
-                        </div>
-                    </div>
+                    ${i == parseInt(exercise.set) - 1 ? '' : pause}
                 `
             }
 
@@ -111,6 +128,10 @@ export default function ActiveWorkout(planIndex){
             } else { // go back to last set
                 activeDisplay.classList.remove('--activeDisplay')
                 activeDisplay.previousElementSibling.classList.add('--activeDisplay')
+                let nextDisplay = activeDisplay.previousElementSibling
+                if (nextDisplay.classList.contains('setCont__pause')){
+                    pauseTimer(nextDisplay.querySelector('.pause__display').id)
+                }
             }
         } else { // Arrow forwards
             if (activeDisplay.nextElementSibling === null){ // No next set to go to
@@ -118,6 +139,10 @@ export default function ActiveWorkout(planIndex){
             } else { // go to next set
                 activeDisplay.classList.remove('--activeDisplay')
                 activeDisplay.nextElementSibling.classList.add('--activeDisplay')
+                let nextDisplay = activeDisplay.nextElementSibling
+                if (nextDisplay.classList.contains('setCont__pause')){
+                    pauseTimer(nextDisplay.querySelector('.pause__display').id)
+                }
             }
         }
     }
