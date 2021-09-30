@@ -104,6 +104,30 @@
                 .setCont__pause {
                     display: none;
                     flex-direction: column;
+
+                    .pause__display {
+                        position: relative;
+                        .display__timer {
+                            position:absolute;
+                            top: 65%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+
+                            .timer__number {
+                                color: #48B18B;
+                                font-weight: bold;
+                                font-size:96px;
+                            }
+                            .timer__text {
+                                font-weight: bold;
+                                font-size:24px;
+                            }
+                            .timer__end {
+                                font-size: 28px;
+                                font-weight: bold;
+                            }
+                        }
+                    }
                 }
 
                 .--activeDisplay {

@@ -27,6 +27,8 @@ export default function ActiveWorkout(planIndex){
 
     let _exercises = _user.plans[planIndex].exercises
 
+    
+
     function workoutTimer(){
         let display = document.querySelector('#active-workout__timerCont .timerCont__display')
         let time = 0
@@ -37,13 +39,32 @@ export default function ActiveWorkout(planIndex){
         }, 1000)
     }
 
-    function pauseTimer(id){
-        let timerCont = document.getElementById(id)
-        let timerDisplay = timerCont.querySelector('.display__number')
-        let time = 60
-        console.log(timerCont)
+    // Holds all timers
+    let timers = {}
 
-        //for (let i = 0; )
+    function pauseTimer(id){
+
+        // Avoid reinitializing the timer if already created
+        if (!timers[id]){
+            timers[id] = {
+                container: document.getElementById(id),
+                time: 60,
+                start: setInterval(() => {
+                    if (timers[id].time === 0){
+                        timers[id].end()
+                        timers[id].container.querySelector('.display__timer').innerHTML = /*html*/`<div class="timer__end">Pause finished</div>`
+                    } else {
+                        timers[id].time -= 1
+                        timers[id].container.querySelector('.timer__number').innerText = timers[id].time
+                    }
+                }, 1000),
+                end: () => {
+                    clearInterval(timers[id].start)
+                }
+            }
+        }
+        
+        console.log(timers[id].container)
     }
 
     function returnExercises(){
@@ -75,8 +96,10 @@ export default function ActiveWorkout(planIndex){
                                     </g>
                                 </g>
                             </svg>
-
-                            <div class="display__number">01:00</div>
+                            <div class="display__timer">
+                                <div class="timer__number">60</div>
+                                <div class="timer__text">seconds</div>
+                            </div>
                         </div>
                         <div class="pause__arrowCont">
                             <img onclick="nextSet(${index}, 0)" src="../media/images/icons/previous.svg" alt="arrow" />

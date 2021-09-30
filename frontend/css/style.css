@@ -1370,6 +1370,34 @@ h4 {
           flex-direction: column;
 }
 
+#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .setCont__pause .pause__display {
+  position: relative;
+}
+
+#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .setCont__pause .pause__display .display__timer {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .setCont__pause .pause__display .display__timer .timer__number {
+  color: #48B18B;
+  font-weight: bold;
+  font-size: 96px;
+}
+
+#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .setCont__pause .pause__display .display__timer .timer__text {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .setCont__pause .pause__display .display__timer .timer__end {
+  font-size: 28px;
+  font-weight: bold;
+}
+
 #view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .--activeDisplay {
   display: -webkit-box;
   display: -ms-flexbox;
