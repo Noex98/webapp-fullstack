@@ -382,15 +382,6 @@ nav ul .nav__active .stroke {
   line-height: 21px;
 }
 
-#view__home h3 {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 16px;
-  color: #AAD4C5;
-}
-
 #view__home #weekMonth {
   margin-top: 30px;
   display: -webkit-box;
@@ -470,7 +461,7 @@ nav ul .nav__active .stroke {
 
 #view__home #workoutContainer th {
   color: #A4CDBF;
-  padding: 10px 0px;
+  padding: 10px 10px;
   font-size: 13px;
 }
 
@@ -504,13 +495,13 @@ nav ul .nav__active .stroke {
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
-  font-size: 36px;
-  line-height: 42px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #AAD4C5;
 }
 
 #view__home button {
   font-size: 20px;
-  margin-top: 50px;
   padding: 15px 45px;
   color: white;
   background: #48B18B;
@@ -524,9 +515,10 @@ nav ul .nav__active .stroke {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 50px;
+  padding-bottom: 10px;
 }
 
 #view__plans h2 {
@@ -1006,6 +998,10 @@ h2 {
   font-size: 18px;
   line-height: 21px;
   margin: 15px 0px;
+}
+
+h3 {
+  font-size: 28px;
 }
 
 h4 {

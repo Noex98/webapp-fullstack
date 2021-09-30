@@ -1,26 +1,34 @@
-h1{
+h1 {
     margin: 15px 0px;
 }
-h2{
+
+h2 {
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 21px;
     margin: 15px 0px;
-} 
-h4{
+}
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
    display: flex;
    justify-content: flex-end;
    color: #A4CDBF;
    padding-bottom: 10px;
 }
+
 #workout_view{
     .workoutContainer{
         background: rgba(255, 255, 255, 0.2);
         border-radius: 10px;
         padding: 25px 25px 40px;
         margin: 10px 0px;
+
         .workoutContainer__header{
             display: flex;
             justify-content: space-between;
@@ -29,43 +37,57 @@ h4{
         .accordion{
             display: none;
         }
-        .activeAcc{
-        display: block;
-        table{
-        width: 100%;
-        border: 0;
-        border-collapse: collapse;
-        padding: 20px;
-        }   
-        tbody{
-        display: table;
-        width:100%;
-    }
-        th{color:#A4CDBF;
-        padding:10px 0px;
-        font-size: 13px;}
+
+        .activeAcc {
+            display: block;
+
+            table {
+                width: 100%;
+                border: 0;
+                border-collapse: collapse;
+                padding: 20px;
+            } 
+
+            tbody {
+                display: table;
+                width:100%;
+            }
+
+            th {
+            color:#A4CDBF;
+            padding:10px 0px;
+            font-size: 13px;
+            }
         }
-        td{
-        padding: 10px;    
-        border: 1px solid rgb(207, 204, 204);
-        border-left: none;
-        border-right: none;
-        font-size: 18px;}
-        .start{text-align: left;
-        padding-left: 0px;}
-        .number{text-align: center;
+
+        td {
+            padding: 10px;    
+            border: 1px solid rgb(207, 204, 204);
+            border-left: none;
+            border-right: none;
+            font-size: 18px;
         }
-        .rep{
-        border: 1px solid rgb(207, 204, 204);
-        border-top: none;
+
+        .start {
+            text-align: left;
+            padding-left: 0px;
         }
-        .repnum{
+
+        .number {
+            text-align: center;
+        }
+
+        .rep {
+            border: 1px solid rgb(207, 204, 204);
+            border-top: none;
+        }
+
+        .repnum {
             border: 1px solid  rgb(207, 204, 204);
             
         }
         
-        
-        button{
+        button {
             font-size: 20px;
             margin-top: 50px;
             padding: 15px 45px;

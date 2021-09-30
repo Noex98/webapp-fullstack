@@ -1,27 +1,20 @@
 #view__home {
   
-    h1{
+    h1 {
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
     line-height: 28px;
     }
 
-    h2{
+    h2 {
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 21px;
         
     }
-    h3{
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 16px;
-    color: #AAD4C5;
-    }
+
     #weekMonth{
         margin-top: 30px;
         display: flex;
@@ -73,7 +66,7 @@
     }
 }
 
-    #workoutContainer{
+    #workoutContainer {
         width:100%;
         
         background: rgba(255, 255, 255, 0.17);
@@ -84,58 +77,73 @@
             padding: 20px 20px;
 
         }
-        table{
+
+        table {
             width: 100%;
             border: 0;
             border-collapse: collapse;
-            }   
-            tbody{
+        }   
+
+        tbody {
             display: table;
             width:100%;
         }
-            th{color:#A4CDBF;
-            padding:10px 0px;
-            font-size: 13px;}
+
+        th {
+            color:#A4CDBF;
+            padding: 10px 10px;
+            font-size: 13px;
+        }
+    }
+    td {
+        padding: 10px;    
+        border: 1px solid rgb(207, 204, 204);
+        border-left: none;
+        border-right: none;
+        font-size: 18px;
+    }
+            .start {
+                text-align: left;
+                padding-left: 0px;
             }
-            td{
-            padding: 10px;    
-            border: 1px solid rgb(207, 204, 204);
-            border-left: none;
-            border-right: none;
-            font-size: 18px;}
-            .start{text-align: left;
-            padding-left: 0px;}
-            .number{text-align: center;
+
+            .number {
+                text-align: center;
             }
-            .rep{
-            border: 1px solid rgb(207, 204, 204);
-            border-top: none;
+
+            .rep {
+                border: 1px solid rgb(207, 204, 204);
+                border-top: none;
             }
-            .repnum{
+
+            .repnum {
                 border: 1px solid  rgb(207, 204, 204);
-                
             }
-            h3{
+
+            h3 {
                 font-family: Roboto;
                 font-style: normal;
                 font-weight: bold;
-                font-size: 36px;
-                line-height: 42px;
-                    }
-            button{
+                font-size: 14px;
+                line-height: 16px;
+                color: #AAD4C5;
+            }
+
+            button {
                 font-size: 20px;
-                margin-top: 50px;
                 padding: 15px 45px;
                 color: white;
                 background: #48B18B;
                 border-radius: 10px;
                 border: none;
                 box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-    
             }
-            .buttons{
+
+            .buttons {
                 display: flex;
-                justify-content: space-between;
+                justify-content: space-around;
+                margin-top: 50px;
+                padding-bottom: 10px;
             }
-    }
+}
 
