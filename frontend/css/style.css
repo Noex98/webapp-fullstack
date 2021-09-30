@@ -461,7 +461,7 @@ nav ul .nav__active .stroke {
 
 #view__home #workoutContainer th {
   color: #A4CDBF;
-  padding: 10px 10px;
+  padding: 10px;
   font-size: 13px;
 }
 
@@ -470,12 +470,12 @@ nav ul .nav__active .stroke {
   border: 1px solid #cfcccc;
   border-left: none;
   border-right: none;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 #view__home .start {
   text-align: left;
-  padding-left: 0px;
+  padding-left: 10px;
 }
 
 #view__home .number {
