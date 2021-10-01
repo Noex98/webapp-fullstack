@@ -29,11 +29,16 @@ h4 {
         border-radius: 10px;
         padding: 25px 0px 25px;
         margin: 10px 0px;
+        transition:200ms;
 
         .workoutContainer__header{
             display: flex;
             justify-content: space-between;
             margin: 0 15px 5px;
+
+            img {
+                transition:200ms;
+            }
         }
       
         .accordion{
@@ -104,6 +109,12 @@ h4 {
             display: flex;
             justify-content: space-around;
             padding-top: 25px;
+        }
+    }
+    .activeBtn {
+        img {
+            
+            transform: rotate(180deg);
         }
     }
 }
