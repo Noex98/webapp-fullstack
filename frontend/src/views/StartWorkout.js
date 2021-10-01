@@ -145,7 +145,7 @@ export default function StartWorkout(){
             <button>Edit</button>
             ${Link('/active-workout', /*html*/`
                 <button>Start</button>
-            `, index)}
+            `, plans.index)}
             </div>
             </div>
             </div>`
