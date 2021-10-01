@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const path = require('path')
+const cors = require('cors')
 
 // Imports
 const auth_routes = require('./routes/auth_routes')
@@ -25,6 +26,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 app.use(cookieParser());                            // Parse cookies
 app.use(express.urlencoded({ extended: true }));    // Parse url-encoded
 app.use(express.json({ extended: true }));          // Parse JSON
+
+app.use(cors())
 
 // Endpoints
 app.use(auth_routes)    // Authorization, authentication and new users
