@@ -98,6 +98,11 @@ export default function Home(){
         
         document.getElementById('workoutContainer').innerHTML = showPlan(clickedBtn.dataset.date.toLowerCase())
     }
+
+    window.scrollBtn = (direction) => {
+        let cont = document.getElementById('home__days')
+        cont.scrollLeft = direction === 0 ? 0 : cont.offsetWidth
+    }
     
     function showPlan(day){
 
@@ -194,13 +199,13 @@ export default function Home(){
                 <h2>${getMonth(today)}</h2> 
             </div>
             <div>
-                <img id="arrowleft" src="../media/images/icons/arrow_left.svg">
+                <img onclick="scrollBtn(0)" id="arrowleft" src="../media/images/icons/arrow_left.svg">
 
                 <div id="home__days">
                     ${appendDays()}
                 </div>
 
-                <img id="arrowright" src="../media/images/icons/arrow_right.svg">
+                <img onclick="scrollBtn(1)" id="arrowright" src="../media/images/icons/arrow_right.svg">
             </div>
           
             <div id="workoutContainer">

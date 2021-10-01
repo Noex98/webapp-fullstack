@@ -419,6 +419,7 @@ nav ul .nav__active .stroke {
   overflow: auto;
   overflow-y: visible;
   white-space: nowrap;
+  scroll-behavior: smooth;
 }
 
 #view__home div #home__days .nd {

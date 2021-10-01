@@ -21,11 +21,13 @@ export default function StartWorkout(){
 
     let _plans = _user.plans;
     let today = new Date();
+    console.log(_plans);
 
     function getWeekDay(today){
         let days = ["sunday","monday", "tuesday", "wednesday", "thursday", "friday", "saturday", ]
         return days[today.getDay()]
     }
+    console.log(getWeekDay(today))
 
     let _plansToday = []
     let _plansNotToday = []
@@ -38,11 +40,6 @@ export default function StartWorkout(){
             _plansNotToday.push(plan)
         }
     }
-
-    console.log(_plans)
-    console.log(_plansToday)
-    console.log(_plansNotToday)
-
     //append todays workout to DOM
     function returnWorkoutsToday(){
         //if there is more then 0 plans to day display them, else display nothing
@@ -58,7 +55,7 @@ export default function StartWorkout(){
 
                 //append to dom
                 html_template  += /*html*/
-                ` <div class="workoutContainer"  id="${id}" onclick="showAccordion(this.id)">
+                ` <div class="workoutContainer" onclick="showAccordion(this)">
                 <div class="workoutContainer__header">
                     <h3>
                     ${plans.name}</h3>
@@ -110,61 +107,56 @@ export default function StartWorkout(){
     //append all workouts to DOM
     function returnWorkouts(){
         let html_template = ''
-        for (let plans of _plansNotToday) {
-            //give unique id's
-            var id = "id" + Math.random().toString(16).slice(2)
+        for (let [index, plans] of _plansNotToday.entries()) {
             html_template +=/*html*/ `
-            <div class="workoutContainer" id="${id}" onclick="showAccordion(this.id)">
-                <div class="workoutContainer__header">
-                    <h3>
-                    ${plans.name}</h3> 
-                    <img src="../media/images/icons/arrow_down.svg">
-                </div>
-                <div class="accordion">
-                    <h4>${plans.exercises.length} exercises</h4>
-                    <table>
-                        <tr>
-                            <th class="start">exercise</th>
-                            <th>set</th>
-                            <th class="rep">rep</th>
-                            <th>weight</th>
-                        </tr>
+            <div class="workoutContainer"onclick="showAccordion(this)">
+            <div class="workoutContainer__header">
+            <h3>
+            ${plans.name}</h3> 
+            <img src="../media/images/icons/arrow_down.svg">
+            </div>
+            <div class="accordion">
+            <h4>${plans.exercises.length} exercises</h4>
+           <table>
+            <tr>
+            <th class="start">exercise</th>
+            <th>set</th>
+            <th class="rep">rep</th>
+            <th>weight</th>
+            </tr>
+           
            
             `
             //Loop through the exercises withing "plans" and append them to dom
             for (const exercise of plans.exercises) {
                 html_template +=/*html*/`
                 <tr>
-                    <td class="start">${exercise.name}</td>
-                    <td class="number">${exercise.set}</td>
-                    <td class="number repnum">${exercise.rep}</td>
-                    <td class="number">${exercise.weight}</td>
+                <td class="start">${exercise.name}</td>
+                <td class="number">${exercise.set}</td>
+                <td class="number repnum">${exercise.rep}</td>
+                <td class="number">${exercise.weight}</td>
                 </tr>
              `
             }
-
             //Finish table and div tags that was started in the first loop through "plans"
-            html_template +=/*html*/`
-                    </table>
-                    <div class="buttons">
-                        <button>Edit</button>
-                        ${Link('/active-workout', /*html*/`
-                            <button>Start</button>
-                        `, plans.index)}
-                    </div>
-                </div>
+            html_template +=/*html*/
+            `  </table>
+            <div class="buttons">
+            <button>Edit</button>
+            ${Link('/active-workout', /*html*/`
+                <button>Start</button>
+            `, index)}
             </div>
-            `
+            </div>
+            </div>`
         }
        
         return html_template
     }
   
-    window.showAccordion = (clicked_id) => {
+    window.showAccordion = (element) => {
 
-        let clickedBtn = document.getElementById(clicked_id)
-
-        let addBtn = clickedBtn.classList.contains('activeBtn') ? false : true;
+        let addBtn = element.classList.contains('activeBtn') ? false : true;
 
         // Get list of all buttons
         let buttons = document.querySelectorAll(".workoutContainer");
@@ -178,8 +170,8 @@ export default function StartWorkout(){
         if (addBtn) {
 
             // Add active class to the clicked element
-            clickedBtn.classList.add("activeBtn")
-            clickedBtn.lastElementChild.classList.add("activeAcc")
+            element.classList.add("activeBtn")
+            element.lastElementChild.classList.add("activeAcc")
             
         }
     }
@@ -188,10 +180,11 @@ export default function StartWorkout(){
         ${Background()}
         ${Header({profileBtn: true, backBtn: true})}
             <div id="workout_view">
-                <h1>Choose your workout</h1>
-                ${returnWorkoutsToday()}
-                <h2>All Workouts</h2>
-                ${returnWorkouts()}
+            <h1>Choose your workout</h1>
+            ${returnWorkoutsToday()}
+            <h2>All Workouts</h2>
+            
+            ${returnWorkouts()}
             </div>
         ${Nav('startWorkout')}
     `)

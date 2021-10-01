@@ -32,7 +32,6 @@
         }
         #arrowleft {
             left: -18px;
-        
         }
         #arrowright {
             right: -18px;
@@ -44,6 +43,7 @@
         overflow: auto;
         overflow-y: visible;
         white-space: nowrap;
+        scroll-behavior: smooth;
    
         .nd {
             transition:150ms;
