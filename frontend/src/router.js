@@ -69,12 +69,9 @@ function render(data){
     } else {
         if (target.auth){
             ProtectRoute()
-            root.innerHTML = target.view(data)
-        } else {
-            root.innerHTML = target.view(data)
         }
-    } 
-    
+        root.innerHTML = target.view(data)
+    }
 }
 
 // Global navigation function
