@@ -69,7 +69,7 @@ export default function ActiveWorkout(planIndex){
     // Update the bread crumbs
     document.breadCrumbs = (element) => {
         // Get scroll x position
-        let position = element.scrollLeft
+        let position = Math.round(element.scrollLeft)
 
         // Get width of the wrapper
         let width = element.offsetWidth
