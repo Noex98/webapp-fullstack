@@ -175,7 +175,7 @@ export default function Home(){
         ${Background()}
         ${Header({profileBtn: true})}
         <div id="view__home">
-            <h2>Hello ${_user !== undefined ? _user.username : "Loading"}💪<h2>
+            <h2>Hello ${_user !== undefined ? _user.username : "Loading"}💪</h2>
             <h1>Welcome Back!</h1>
             <div id="weekMonth">
                 <h2>${getMonth(today)}</h2> 
