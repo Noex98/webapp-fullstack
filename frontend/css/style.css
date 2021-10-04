@@ -419,9 +419,12 @@ nav ul .nav__active .stroke {
   overflow: auto;
   overflow-y: visible;
   white-space: nowrap;
+  scroll-behavior: smooth;
 }
 
 #view__home div #home__days .nd {
+  -webkit-transition: 150ms;
+  transition: 150ms;
   display: inline-block;
   background: rgba(102, 132, 138, 0.56);
   border-radius: 10px;
@@ -1027,6 +1030,8 @@ h4 {
   border-radius: 10px;
   padding: 25px 0px 25px;
   margin: 10px 0px;
+  -webkit-transition: 200ms;
+  transition: 200ms;
 }
 
 #workout_view .workoutContainer .workoutContainer__header {
@@ -1037,6 +1042,11 @@ h4 {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 0 15px 5px;
+}
+
+#workout_view .workoutContainer .workoutContainer__header img {
+  -webkit-transition: 200ms;
+  transition: 200ms;
 }
 
 #workout_view .workoutContainer .accordion {
@@ -1110,6 +1120,11 @@ h4 {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   padding-top: 25px;
+}
+
+#workout_view .activeBtn img {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 .changePassword__container {
@@ -1279,7 +1294,7 @@ h4 {
 #view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont {
   text-align: center;
   margin: 24px 0;
-  padding: 24px;
+  padding: 2vh 24px;
   background: rgba(255, 255, 255, 0.17);
   border-radius: 10px;
 }
@@ -1345,6 +1360,7 @@ h4 {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   padding: 24px;
+  margin-top: auto;
 }
 
 #view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .set__arrowCont img, #view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .pause__arrowCont img {
@@ -1369,13 +1385,18 @@ h4 {
           flex-direction: column;
 }
 
+#view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .setCont__pause .pause__title {
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+
 #view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .setCont__pause .pause__display {
   position: relative;
 }
 
 #view__active-workout #active-workout__wrapper .active-workout__exercise .exercise__setCont .setCont__pause .pause__display .display__timer {
   position: absolute;
-  top: 65%;
+  top: 55%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -1409,7 +1430,7 @@ h4 {
 }
 
 #view__active-workout #active-workout__timerCont {
-  padding: 24px;
+  padding: 2vh;
 }
 
 #view__active-workout #active-workout__timerCont div {
@@ -1437,6 +1458,8 @@ h4 {
   height: 18px;
   border-radius: 50%;
   background: rgba(72, 177, 139, 0.6);
+  -webkit-transition: 200ms;
+  transition: 200ms;
 }
 
 #view__active-workout #active-workout__dotCont .dotCont__dot--active {

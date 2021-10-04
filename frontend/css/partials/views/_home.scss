@@ -32,7 +32,6 @@
         }
         #arrowleft {
             left: -18px;
-        
         }
         #arrowright {
             right: -18px;
@@ -44,8 +43,10 @@
         overflow: auto;
         overflow-y: visible;
         white-space: nowrap;
+        scroll-behavior: smooth;
    
         .nd {
+            transition:150ms;
             display: inline-block;
             background: rgba(102, 132, 138, 0.56);
             border-radius: 10px;
