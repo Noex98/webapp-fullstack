@@ -43,7 +43,7 @@ export default function Home(){
             "November",
             "December",
         ]
-        return months[today.getMonth()-1]
+        return months[today.getMonth()]
     }
 
     
@@ -156,6 +156,7 @@ export default function Home(){
                 html_template += /*html*/`
                     <h1>${plan.name}</h1>
                 `
+
             }
 
             return (/*html*/ `
