@@ -66,7 +66,29 @@ export default function ActiveWorkout(planIndex){
         }
     }
 
+    // Update the bread crumbs
+    document.breadCrumbs = (element) => {
+        // Get scroll x position
+        let position = Math.round(element.scrollLeft)
 
+        // Get width of the wrapper
+        let width = element.offsetWidth
+
+        // Avoid burning peoples cpu
+        if (position % width === 0){
+            // Grab all the dots from the dom
+            let dots = document.querySelectorAll('#active-workout__dotCont div')
+
+            // Remove active class
+            for (const dot of dots) {
+                dot.classList.remove('dotCont__dot--active')
+            }
+
+            // Add active class on desired element
+            dots.item( position / width ).classList.add('dotCont__dot--active')
+        }
+
+    }
 
     // Returns the main content on the page
     function returnExercises(){
@@ -85,16 +107,17 @@ export default function ActiveWorkout(planIndex){
                 // Returns the pause appended after each set
                 let pause = /*html*/`
                     <div class="setCont__pause">
+                        <div class="pause__title">Rest</div>
                         <div class="pause__display" id="pause__display-${index.toString() + i.toString()}">
 
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 757.58 529.86">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 757.58 671.39">
                                 <defs>
                                     <style>.cls-1{fill:#fff;}.cls-2{fill:#aad4c5;}</style>
                                 </defs>
-                                <g id="Lag_2" data-name="Lag 2">
-                                    <g id="timer">
-                                        <path id="white" class="cls-1" d="M378.79,0C169.59,0,0,169.59,0,378.79A377.52,377.52,0,0,0,31.33,529.86H58.79q-3.13-6.61-6-13.37a353.89,353.89,0,0,1,652-275.41,355.07,355.07,0,0,1,0,275.41q-2.87,6.76-6,13.37h27.45a377.52,377.52,0,0,0,31.33-151.07C757.58,169.59,588,0,378.79,0Z"/>
-                                        <path id="green" class="cls-2" d="M378.79,0C169.59,0,0,169.59,0,378.79A377.52,377.52,0,0,0,31.33,529.86H58.79q-3.13-6.61-6-13.37a353.89,353.89,0,0,1,652-275.41,355.07,355.07,0,0,1,0,275.41q-2.87,6.76-6,13.37h27.45a377.52,377.52,0,0,0,31.33-151.07C757.58,169.59,588,0,378.79,0Z"/>
+                                    <g id="Lag_2" data-name="Lag 2">
+                                        <g id="Lag_1-2" data-name="Lag 1">
+                                            <path class="cls-1" d="M378.79,0C169.59,0,0,169.59,0,378.79c0,117.85,53.82,223.12,138.22,292.6V638.2q-4.87-4.53-9.59-9.25A354,354,0,1,1,629,629q-4.73,4.72-9.6,9.25v33.19c84.4-69.48,138.22-174.75,138.22-292.6C757.58,169.59,588,0,378.79,0Z"/>
+                                            <path class="cls-2" d="M378.79,0C169.59,0,0,169.59,0,378.79c0,117.85,53.82,223.12,138.22,292.6V638.2q-4.87-4.53-9.59-9.25A354,354,0,1,1,629,629q-4.73,4.72-9.6,9.25v33.19c84.4-69.48,138.22-174.75,138.22-292.6C757.58,169.59,588,0,378.79,0Z"/>
                                     </g>
                                 </g>
                             </svg>
@@ -197,7 +220,7 @@ export default function ActiveWorkout(planIndex){
         ${Background()}
         ${Header({backBtn: true, profileBtn: true})}
         <div id="view__active-workout">
-            <div id="active-workout__wrapper">
+            <div id="active-workout__wrapper" onscroll="breadCrumbs(this)">
                 ${returnExercises()}
             </div>
             <div id="active-workout__timerCont">

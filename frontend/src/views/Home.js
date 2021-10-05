@@ -3,6 +3,7 @@ import Nav from '../components/Nav.js'
 import Background from '../components/Background.js'
 import Spinner from '../components/Spinner.js'
 import { user } from '../Store.js' 
+import Link from '../utils/Link.js'
 
 export default function Home(){
 
@@ -78,9 +79,8 @@ export default function Home(){
         }
         return html_template
     }
-   //Change style onclick
-    
 
+   //Change style onclick
     window.changeStyle = (clicked_id) => {
 
         let clickedBtn = document.getElementById(clicked_id)
@@ -98,10 +98,22 @@ export default function Home(){
         
         document.getElementById('workoutContainer').innerHTML = showPlan(clickedBtn.dataset.date.toLowerCase())
     }
+
+    window.scrollBtn = (direction) => {
+        let cont = document.getElementById('home__days')
+        cont.scrollLeft = direction === 0 ? 0 : cont.offsetWidth
+    }
     
     function showPlan(day){
 
-        let plansShowed = _plans.filter(plan => plan.repeat.includes(day))
+        // Add index to the plans before filter
+        let plansShowed = _plans.map((plan, index) => {
+            plan.index = index
+            return plan
+        })
+
+        // Filter the plans
+        plansShowed = plansShowed.filter(plan => plan.repeat.includes(day))
 
         // No plans for the day
         if (plansShowed.length == 0){
@@ -113,37 +125,46 @@ export default function Home(){
             
         // One plan for the day
         } else if (plansShowed.length == 1){
+
             let html_template ='';
+
             let plan = plansShowed[0];
-                html_template += /*html*/
-                `<div id="workoutContainer__header">
+
+            html_template += /*html*/`
+                <div id="workoutContainer__header">
                     <h3>Today's plan</h3>
                     <h1>${plan.name}</h1>
                 </div>
                 <table>
-                <tr>
-                <th class="start">exercise</th>
-                <th>set</th>
-                <th class="rep">rep</th>
-                <th>weight</th>
-                </tr>
+                    <tr>
+                        <th class="start">exercise</th>
+                        <th>set</th>
+                        <th class="rep">rep</th>
+                        <th>weight</th>
+                    </tr>
                 `
 
                 for (let exercise of plan.exercises) {
-                    html_template +=/*html*/`
+                    html_template += /*html*/`
                     <tr>
-                    <td class="start">${exercise.name}</td>
-                    <td class="number">${exercise.set}</td>
-                    <td class="number repnum">${exercise.rep}</td>
-                    <td class="number">${exercise.weight}</td>
+                        <td class="start">${exercise.name}</td>
+                        <td class="number">${exercise.set}</td>
+                        <td class="number repnum">${exercise.rep}</td>
+                        <td class="number">${exercise.weight}</td>
                     </tr>
                    `
                 }
-                html_template +=/*html*/
-            `  </table>
-            <div class="buttons">
-            <button>Edit</button>
-            <button>Start</button>`
+
+                html_template += /*html*/`
+                    </table>
+                    <div class="buttons">
+                        <button>Edit</button>
+                        ${Link('/active-workout', /*html*/`
+                            <button>Start</button>
+                        `, plan.index)}
+                    </div>
+                `
+
             return html_template
 
         // More than 1 plan for the day
@@ -160,39 +181,36 @@ export default function Home(){
             }
 
             return (/*html*/ `
-            <div id="workoutContainer__header">
-                <h3>You have ${plansShowed.length} plans today</h3>
-                ${html_template}
-            </div>
+                <div id="workoutContainer__header">
+                    <h3>You have ${plansShowed.length} plans today</h3>
+                    ${html_template}
+                </div>
         `)
         }
 
     }
-   console.log(_days);
-   
-    
 
     return (/*html*/ `
         ${Background()}
         ${Header({profileBtn: true})}
         <div id="view__home">
-            <h2>Hello ${_user !== undefined ? _user.username : "Loading"}💪<h2>
+            <h2>Hello ${_user !== undefined ? _user.username : "Loading"}💪</h2>
             <h1>Welcome Back!</h1>
             <div id="weekMonth">
                 <h2>${getMonth(today)}</h2> 
             </div>
             <div>
-                <img id="arrowleft" src="../media/images/icons/arrow_left.svg">
+                <img onclick="scrollBtn(0)" id="arrowleft" src="../media/images/icons/arrow_left.svg">
 
                 <div id="home__days">
                     ${appendDays()}
                 </div>
 
-                <img id="arrowright" src="../media/images/icons/arrow_right.svg">
+                <img onclick="scrollBtn(1)" id="arrowright" src="../media/images/icons/arrow_right.svg">
             </div>
           
             <div id="workoutContainer">
-                ${showPlan(day.dayOfWeek)}
+                ${showPlan(day.dayOfWeek.toLowerCase())}
             </div>
         </div>
         

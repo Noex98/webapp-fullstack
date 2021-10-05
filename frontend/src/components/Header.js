@@ -38,7 +38,7 @@ export default function Header(props){
             ${BackBtn()}
             ${Link('/', /*html*/ `
                 <h1 class="logo">Liftr</h1>
-            `)}
+            `)} 
             ${ProfileBtn()}
             
         </header>
