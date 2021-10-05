@@ -57,12 +57,12 @@ export default function Home(){
 
     // Add dates ahead of today and add to end of _days array
     for (let i = 0; i < 10; i++){
-    today.setDate(today.getDate()+1)
-    let dayAhead = {
-        dayOfWeek: getWeekDay(today),
-        dateOfMonth:today.getDate()
-    };
-    _days.push(dayAhead)
+        today.setDate(today.getDate()+1)
+        let dayAhead = {
+            dayOfWeek: getWeekDay(today),
+            dateOfMonth:today.getDate()
+        };
+        _days.push(dayAhead)
     }
  
     // Append to DOM
@@ -79,7 +79,7 @@ export default function Home(){
         }
         return html_template
     }
-
+ 
    //Change style onclick
     window.changeStyle = (clicked_id) => {
 

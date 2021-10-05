@@ -18,43 +18,53 @@ const routes = [
     {
         path: '/',
         view: Home,
-        auth: true
+        auth: true,
+        title: 'Liftr'
     }, {
         path: '/login',
         view: Login,
-        auth: false
+        auth: false,
+        title: 'Liftr | Login'
     }, {
         path: '/new-user',
         view: NewUser,
-        auth: false
+        auth: false,
+        title: 'Liftr | New User'
     }, {
         path: '/forgot-password',
         view: ForgotPassword,
-        auth: false
+        auth: false,
+        title: 'Liftr | Reset Password'
     }, {
         path: '/profile',
         view: Profile,
-        auth: true
+        auth: true,
+        title: 'Liftr | My Profile'
     }, {
         path: '/stats',
         view: Stats,
-        auth: true
+        auth: true,
+        title: 'Liftr | Statistics'
     }, {
         path: '/start-workout',
         view: StartWorkout,
-        auth: true
+        auth: true,
+        title: 'Liftr | Start Workout'
     }, {
         path: '/active-workout',
         view: ActiveWorkout,
-        auth: true
+        auth: true,
+        title: 'Liftr | Active workout'
     }, {
         path: '/plans',
         view: Plans,
-        auth: true
+        auth: true,
+        title: 'Liftr | Create Plan'
     }, {
         path: '/change-password',
         view: ChangePassword,
-        auth: true
+        auth: true,
+        title: 'Liftr | My Profile'
     }
 ]
 
@@ -71,12 +81,13 @@ function render(data){
             ProtectRoute()
         }
         root.innerHTML = target.view(data)
+        document.title = target.title
     }
 }
 
 // Global navigation function
 window.navigateTo = (path, data) => {
-    window.history.pushState(null, null, path)
+    window.history. pushState(null, null, path)
     render(data)
 }
 

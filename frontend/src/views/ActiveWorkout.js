@@ -87,7 +87,6 @@ export default function ActiveWorkout(planIndex){
             // Add active class on desired element
             dots.item( position / width ).classList.add('dotCont__dot--active')
         }
-
     }
 
     // Returns the main content on the page
