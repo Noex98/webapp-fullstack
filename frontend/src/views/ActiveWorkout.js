@@ -27,18 +27,6 @@ export default function ActiveWorkout(planIndex){
 
     let _exercises = _user.plans[planIndex].exercises
 
-    
-
-    function workoutTimer(){
-        let display = document.querySelector('#active-workout__timerCont .timerCont__display')
-        let time = 0
-
-        setTimeout(() => {
-            time += 1
-            display.innerText = time
-        }, 1000)
-    }
-
     // Holds all timers
     let timers = {}
 
@@ -48,7 +36,6 @@ export default function ActiveWorkout(planIndex){
         if (!timers[id]){
             timers[id] = {
                 container: document.getElementById(id),
-                initialTime: 60,
                 time: 60,
                 start: setInterval(() => {
                     if (timers[id].time === 0){

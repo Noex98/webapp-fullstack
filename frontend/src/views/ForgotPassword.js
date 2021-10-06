@@ -1,3 +1,10 @@
+import Background from "../components/Background.js"
+import Header from "../components/Header.js"
+
 export default function ForgotPassword(){
-    return '123'
+    return (/*html*/`
+        ${Background()}
+        ${Header({backBtn: true})}
+        <div>Forgot password component</div>
+    `)
 }

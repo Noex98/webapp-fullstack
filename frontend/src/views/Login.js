@@ -2,6 +2,7 @@ import Background from "../components/Background.js"
 import Redirect from "../utils/Redirect.js"
 import Link from "../utils/Link.js"
 import __ENV from "../env.js"
+import { user } from "../Store.js"
 
 export default function Login(){
 
@@ -26,6 +27,7 @@ export default function Login(){
                         <div>${data.err}</div>
                     `
                 } else {
+                    user.update()
                     Redirect('/')
                 }
             })
